@@ -1,1692 +1,892 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satoshi Terminal | $SATS Token on BSC - The Terminal is Open</title>
-    <meta name="description" content="$SATS on BSC - Interactive terminal for crypto natives. Trade, explore, and deploy your destiny on Binance Smart Chain.">
-    <meta name="canonical" href="https://satoshi-terminal.sbs">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Satoshi Terminal | $SATS Token on BSC">
-    <meta property="og:description" content="$SATS on BSC - Interactive terminal for crypto natives. The terminal is open.">
-    <meta property="og:image" content="logo.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://satoshi-terminal.sbs">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Satoshi Terminal | $SATS Token on BSC">
-    <meta name="twitter:description" content="$SATS on BSC - Interactive terminal for crypto natives. The terminal is open.">
-    <meta name="twitter:image" content="logo.png">
-    
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Satoshi Terminal",
-        "description": "$SATS token on Binance Smart Chain",
-        "url": "https://satoshiterminal.com",
-        "logo": "logo.png",
-        "sameAs": [
-            "https://x.com/SATS",
-            "https://t.me/SATS"
-        ]
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Satoshi Terminal | $SATS Token on BSC - The Terminal is Open</title>
+  <meta name="description" content="$SATS on BSC - Interactive terminal for crypto natives. Trade, explore, and deploy your destiny on Binance Smart Chain.">
+  <link rel="icon" href="logo.png" />
+  <meta name="canonical" href="https://satoshi-terminal.sbs">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Satoshi Terminal | $SATS Token on BSC">
+  <meta property="og:description" content="$SATS on BSC - Interactive terminal for crypto natives. The terminal is open.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://satoshi-terminal.sbs">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Satoshi Terminal | $SATS Token on BSC">
+  <meta name="twitter:description" content="$SATS on BSC - Interactive terminal for crypto natives. The terminal is open.">
+  <meta name="twitter:image" content="logo.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Satoshi Terminal",
+    "description":"$SATS token on Binance Smart Chain",
+    "url":"https://satoshi-terminal.sbs",
+    "logo":"logo.png",
+    "sameAs":[
+      "https://x.com/Sats_Terminal",
+      "https://t.me/satoshiterminal"
+    ]
+  }
+  </script>
+
+  <style>
+    /* Reset & Base */
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg-primary:#0b0b0b;
+      --bg-secondary:#141414;
+      --bg-tertiary:#1a1a1a;
+      --text-primary:#f5f5f5;
+      --text-secondary:#b0b0b0;
+      --text-muted:#666;
+      --accent:#f0b90b;
+      --accent-dark:#d4a509;
+      --border:#333;
+      --shadow:rgba(0,0,0,.5);
+      --glass-bg:rgba(20,20,20,.8);
+      --glass-border:rgba(255,255,255,.1);
+      --terminal-green:#00ff41;
+      --terminal-blue:#4a9eff;
+      --terminal-red:#ff4757;
     }
-    </script>
-
-    <style>
-        /* Reset & Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #0b0b0b;
-            --bg-secondary: #141414;
-            --bg-tertiary: #1a1a1a;
-            --text-primary: #f5f5f5;
-            --text-secondary: #b0b0b0;
-            --text-muted: #666;
-            --accent: #f0b90b;
-            --accent-dark: #d4a509;
-            --border: #333;
-            --shadow: rgba(0, 0, 0, 0.5);
-            --glass-bg: rgba(20, 20, 20, 0.8);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --terminal-green: #00ff41;
-            --terminal-blue: #4a9eff;
-            --terminal-red: #ff4757;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(11, 11, 11, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .header.scrolled {
-            padding: 10px 0;
-            background: rgba(11, 11, 11, 0.98);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            transition: padding 0.3s ease;
-        }
-
-        .header.scrolled .header-content {
-            padding: 10px 0;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-text {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .header-buttons {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            user-select: none;
-        }
-
-        .btn-secondary {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--accent);
-            transform: translateY(-1px);
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 20px rgba(240, 185, 11, 0.3);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 140px 0 80px;
-            text-align: center;
-            background: radial-gradient(ellipse at center, rgba(240, 185, 11, 0.1) 0%, transparent 70%);
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px rgba(240, 185, 11, 0.3);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-badges {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .badge {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .badge .highlight {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Terminal Section */
-        .terminal-section {
-            padding: 80px 0;
-            background: var(--bg-secondary);
-        }
-
-        .terminal-container {
-            background: var(--bg-primary);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 60px var(--shadow);
-            overflow: hidden;
-        }
-
-        .terminal-header {
-            background: var(--bg-tertiary);
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .terminal-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .dot-red { background: var(--terminal-red); }
-        .dot-yellow { background: var(--accent); }
-        .dot-green { background: var(--terminal-green); }
-
-        .terminal-title {
-            margin-left: 12px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .terminal-body {
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .terminal-output {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            background: var(--bg-primary);
-        }
-
-        .terminal-message {
-            margin-bottom: 16px;
-        }
-
-        .terminal-message:last-child {
-            margin-bottom: 8px;
-        }
-
-        .message-input {
-            color: var(--terminal-green);
-        }
-
-        .message-output {
-            color: var(--text-primary);
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            position: relative;
-        }
-
-        .message-output .copy-btn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 4px 8px;
-            font-size: 0.7rem;
-            border-radius: 4px;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
-        .message-output:hover .copy-btn {
-            opacity: 1;
-        }
-
-        .copy-btn:hover {
-            background: var(--accent);
-            color: #000;
-        }
-
-        .terminal-input-container {
-            padding: 20px;
-            border-top: 1px solid var(--border);
-            background: var(--bg-primary);
-        }
-
-        .terminal-input-line {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Courier New', monospace;
-        }
-
-        .terminal-prompt {
-            color: var(--terminal-green);
-            font-weight: bold;
-            user-select: none;
-        }
-
-        .terminal-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 0.9rem;
-            padding: 4px 0;
-        }
-
-        .terminal-input::placeholder {
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        .terminal-cursor {
-            width: 8px;
-            height: 18px;
-            background: var(--terminal-green);
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        .terminal-controls {
-            padding: 12px 20px;
-            border-top: 1px solid var(--border);
-            background: var(--bg-tertiary);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-        }
-
-        .terminal-hints {
-            color: var(--text-muted);
-        }
-
-        .clear-history {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 4px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.2s ease;
-        }
-
-        .clear-history:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* Content Sections */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section:nth-child(even) {
-            background: var(--bg-secondary);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--text-primary);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .feature-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 30px;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .feature-card h3 {
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* Tokenomics Grid */
-        .tokenomics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .tokenomics-item {
-            background: var(--bg-tertiary);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-
-        .tokenomics-item .label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .tokenomics-item .value {
-            color: var(--accent);
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        /* Roadmap */
-        .roadmap-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .roadmap-item {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .roadmap-number {
-            background: var(--accent);
-            color: #000;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .roadmap-content h3 {
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-
-        /* FAQ */
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            background: none;
-            border: none;
-            width: 100%;
-            padding: 20px;
-            text-align: left;
-            color: var(--text-primary);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: color 0.2s ease;
-        }
-
-        .faq-question:hover {
-            color: var(--accent);
-        }
-
-        .faq-answer {
-            padding: 0 20px 20px;
-            color: var(--text-secondary);
-            display: none;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        .faq-toggle {
-            transition: transform 0.2s ease;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        /* Social Proof */
-        .social-proof {
-            background: var(--bg-tertiary);
-            padding: 40px 0;
-        }
-
-        .proof-badges {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .proof-badge {
-            background: var(--bg-secondary);
-            padding: 15px 25px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .proof-badge .number {
-            color: var(--accent);
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: block;
-        }
-
-        .proof-badge .label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--bg-primary);
-            padding: 40px 0 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        .risk-notice {
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .header-buttons {
-                gap: 8px;
-            }
-
-            .btn {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-
-            .hero {
-                padding: 120px 0 60px;
-            }
-
-            .hero-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .terminal-body {
-                height: 400px;
-            }
-
-            .terminal-output {
-                font-size: 0.8rem;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .roadmap-item {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .logo-text {
-                display: none;
-            }
-
-            .terminal-output {
-                padding: 15px;
-            }
-
-            .terminal-input-container {
-                padding: 15px;
-            }
-        }
-
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .terminal-cursor {
-                animation: none;
-                opacity: 1;
-            }
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Focus states */
-        .btn:focus,
-        .terminal-input:focus,
-        .clear-history:focus,
-        .faq-question:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-    </style>
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+      background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* Header */
+    .header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,11,11,.95);
+      backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:all .3s ease
+    }
+    .header.scrolled{padding:10px 0;background:rgba(11,11,11,.98)}
+    .header-content{display:flex;justify-content:space-between;align-items:center;padding:20px 0;transition:padding .3s ease}
+    .header.scrolled .header-content{padding:10px 0}
+    .logo-container{display:flex;align-items:center;gap:12px}
+    .logo{width:40px;height:40px;border-radius:8px;transition:transform .3s ease}
+    .logo:hover{transform:scale(1.05)}
+    .logo-text{font-size:1.4rem;font-weight:700;color:var(--text-primary)}
+    .header-buttons{display:flex;gap:12px;align-items:center}
+    .btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:all .2s ease;user-select:none}
+    .btn-secondary{background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border)}
+    .btn-secondary:hover{background:var(--bg-tertiary);border-color:var(--accent);transform:translateY(-1px)}
+    .btn-primary{background:var(--accent);color:#000}
+    .btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 4px 20px rgba(240,185,11,.3)}
+    .btn:active{transform:translateY(0)}
+
+    /* Hero */
+    .hero{padding:140px 0 80px;text-align:center;background:radial-gradient(ellipse at center, rgba(240,185,11,.1) 0%, transparent 70%)}
+    .hero-title{font-size:clamp(2.5rem,8vw,5rem);font-weight:800;margin-bottom:20px;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 40px rgba(240,185,11,.3)}
+    .hero-subtitle{font-size:clamp(1.1rem,3vw,1.4rem);color:var(--text-secondary);margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+    .hero-badges{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+    .badge{background:var(--glass-bg);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:8px 16px;border-radius:20px;font-size:.85rem;color:var(--text-secondary)}
+    .badge .highlight{color:var(--accent);font-weight:600}
+
+    /* Terminal */
+    .terminal-section{padding:80px 0;background:var(--bg-secondary)}
+    .terminal-container{background:var(--bg-primary);border-radius:12px;border:1px solid var(--border);box-shadow:0 20px 60px var(--shadow);overflow:hidden}
+    .terminal-header{background:var(--bg-tertiary);padding:12px 20px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+    .terminal-dot{width:12px;height:12px;border-radius:50%}
+    .dot-red{background:var(--terminal-red)} .dot-yellow{background:var(--accent)} .dot-green{background:var(--terminal-green)}
+    .terminal-title{margin-left:12px;font-size:.9rem;color:var(--text-secondary)}
+    .terminal-body{height:520px;display:flex;flex-direction:column}
+    .terminal-output{flex:1;padding:20px;overflow-y:auto;font-family:'Courier New',monospace;font-size:.92rem;line-height:1.45;background:var(--bg-primary)}
+    .terminal-message{margin-bottom:16px}
+    .terminal-message:last-child{margin-bottom:8px}
+    .message-input{color:var(--terminal-green)}
+    .message-output{color:var(--text-primary);white-space:pre-wrap;word-wrap:break-word;position:relative}
+    .message-output .copy-btn{position:absolute;top:0;right:0;background:var(--bg-tertiary);border:1px solid var(--border);color:var(--text-secondary);padding:4px 8px;font-size:.7rem;border-radius:4px;cursor:pointer;opacity:0;transition:opacity .2s ease}
+    .message-output:hover .copy-btn{opacity:1}
+    .copy-btn:hover{background:var(--accent);color:#000}
+    .terminal-input-container{padding:20px;border-top:1px solid var(--border);background:var(--bg-primary)}
+    .terminal-input-line{display:flex;align-items:center;gap:8px;font-family:'Courier New',monospace}
+    .terminal-prompt{color:var(--terminal-green);font-weight:bold;user-select:none}
+    .terminal-input{flex:1;background:transparent;border:none;outline:none;color:var(--text-primary);font-family:inherit;font-size:.92rem;padding:4px 0}
+    .terminal-input::placeholder{color:var(--text-muted);font-style:italic}
+    .terminal-cursor{width:8px;height:18px;background:var(--terminal-green);animation:blink 1s infinite}
+    @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+    .terminal-controls{padding:12px 20px;border-top:1px solid var(--border);background:var(--bg-tertiary);display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+    .terminal-hints{color:var(--text-muted)}
+    .clear-history{background:none;border:1px solid var(--border);color:var(--text-secondary);padding:4px 12px;border-radius:4px;cursor:pointer;font-size:.8rem;transition:all .2s ease}
+    .clear-history:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* Sections */
+    .section{padding:80px 0}
+    .section:nth-child(even){background:var(--bg-secondary)}
+    .section-title{font-size:2.5rem;font-weight:700;text-align:center;margin-bottom:50px;color:var(--text-primary)}
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-bottom:40px}
+    .feature-card{background:var(--glass-bg);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:30px;border-radius:12px;transition:transform .3s ease}
+    .feature-card:hover{transform:translateY(-5px);border-color:var(--accent)}
+    .feature-card h3{color:var(--accent);margin-bottom:15px;font-size:1.3rem}
+
+    .tokenomics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+    .tokenomics-item{background:var(--bg-tertiary);padding:20px;border-radius:8px;text-align:center;border:1px solid var(--border)}
+    .tokenomics-item .label{color:var(--text-secondary);font-size:.9rem;margin-bottom:8px}
+    .tokenomics-item .value{color:var(--accent);font-size:1.2rem;font-weight:700}
+
+    .roadmap-timeline{display:flex;flex-direction:column;gap:30px;max-width:800px;margin:0 auto}
+    .roadmap-item{display:flex;gap:20px;align-items:flex-start}
+    .roadmap-number{background:var(--accent);color:#000;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0}
+    .roadmap-content h3{color:var(--accent);margin-bottom:10px}
+
+    .faq-list{max-width:800px;margin:0 auto}
+    .faq-item{background:var(--bg-tertiary);border:1px solid var(--border);border-radius:8px;margin-bottom:15px;overflow:hidden}
+    .faq-question{background:none;border:none;width:100%;padding:20px;text-align:left;color:var(--text-primary);font-size:1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .2s ease}
+    .faq-question:hover{color:var(--accent)}
+    .faq-answer{padding:0 20px 20px;color:var(--text-secondary);display:none}
+    .faq-item.active .faq-answer{display:block}
+    .faq-toggle{transition:transform .2s ease}
+    .faq-item.active .faq-toggle{transform:rotate(180deg)}
+
+    /* Social Proof */
+    .social-proof{background:var(--bg-tertiary);padding:40px 0}
+    .proof-badges{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+    .proof-badge{background:var(--bg-secondary);padding:15px 25px;border-radius:8px;border:1px solid var(--border);text-align:center}
+    .proof-badge .number{color:var(--accent);font-size:1.5rem;font-weight:bold;display:block}
+    .proof-badge .label{color:var(--text-secondary);font-size:.9rem}
+
+    /* Footer */
+    .footer{background:var(--bg-primary);padding:40px 0 20px;border-top:1px solid var(--border)}
+    .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:20px}
+    .footer-links{display:flex;gap:30px;flex-wrap:wrap}
+    .footer-links a{color:var(--text-secondary);text-decoration:none;font-size:.9rem;transition:color .2s ease}
+    .footer-links a:hover{color:var(--accent)}
+    .footer-bottom{text-align:center;padding-top:20px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.8rem}
+    .risk-notice{margin-top:10px;font-style:italic}
+
+    /* Mobile */
+    @media (max-width:768px){
+      .header-buttons{gap:8px}
+      .btn{padding:8px 12px;font-size:.8rem}
+      .hero{padding:120px 0 60px}
+      .hero-badges{flex-direction:column;align-items:center}
+      .terminal-body{height:440px}
+      .terminal-output{font-size:.85rem}
+      .section{padding:60px 0}
+      .section-title{font-size:2rem}
+      .feature-grid{grid-template-columns:1fr}
+      .roadmap-item{flex-direction:column;text-align:center}
+      .footer-content{flex-direction:column;text-align:center}
+    }
+    @media (max-width:480px){
+      .container{padding:0 15px}
+      .logo-text{display:none}
+      .terminal-output{padding:15px}
+      .terminal-input-container{padding:15px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+      .terminal-cursor{animation:none;opacity:1}
+    }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .btn:focus,.terminal-input:focus,.clear-history:focus,.faq-question:focus{outline:2px solid var(--accent);outline-offset:2px}
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <img src="logo.png" alt="Satoshi Terminal" class="logo">
-                    <div class="logo-text">Satoshi Terminal</div>
-                </div>
-                <nav class="header-buttons">
-                    <a href="https://x.com/SATS" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                        <span>Twitter</span>
-                    </a>
-                    <a href="https://t.me/SATS" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                        <span>Telegram</span>
-                    </a>
-                    <a href="https://four.meme/" class="btn btn-primary" id="buyBtn" target="_blank" rel="noopener noreferrer">
-                        <span>Buy $SATS</span>
-                    </a>
-                </nav>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="#terminal">Terminal</a>
-                    <a href="https://x.com/Sats_Terminal" target="_blank" rel="noopener noreferrer">Twitter</a>
-                    <a href="https://t.me/satoshiterminal" target="_blank" rel="noopener noreferrer">Telegram</a>
-                    <a href="https://four.meme/" target="_blank" rel="noopener noreferrer">Buy Now</a>
-                </div>
-                <div class="footer-links">
-                    <span id="contractInfo">Contract: TBD</span>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Satoshi Terminal. Built for crypto natives.</p>
-                <p class="risk-notice">
-                    Cryptocurrency investments carry high risk. Only invest what you can afford to lose. Not financial advice.
-                </p>
-            </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <img src="logo.png" alt="Satoshi Terminal" class="logo">
+          <div class="logo-text">Satoshi Terminal</div>
         </div>
-    </footer>
-
-    <script>
-        // Configuration
-        const CONFIG = {
-            TYPING_SPEED: 30,
-            MIN_DELAY: 200,
-            MAX_DELAY: 600,
-            MAX_HISTORY: 30,
-            STORAGE_KEY: 'satoshi_terminal_history'
-        };
-
-        // Knowledge Base - Embedded offline responses
-        const KNOWLEDGE_BASE = {
-            commands: {
-                '/help': `Available Commands:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-/help      - Show this help menu
-/about     - Learn about $SATS token
-/token     - View token details and contract info  
-/bsc       - Why we chose Binance Smart Chain
-/roadmap   - Development roadmap and future plans
-/howtobuy  - Step-by-step buying guide
-/hype      - Generate viral tweet drafts
-/meme      - Get meme ideas for $SATS
-/faq       - Frequently asked questions
-/clean     - Clear terminal screen
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-You can also type any question and I'll search my knowledge base!`,
-
-                '/about': `$SATS - The Terminal Token 🚀
-
-Built for crypto natives who live in terminals, think in code, and deploy at light speed. 
-
-$SATS isn't just another memecoin—it's the command center for the next generation of BSC degens. Our interactive terminal gives you real-time insights, trading tools, and community features that actually matter.
-
-Why $SATS?
-• Zero tax trading (keep your gains)
-• Lightning-fast BSC transactions  
-• Terminal-native user experience
-• Built by devs, for devs
-• Community-driven development
-• Actual utility beyond the hype
-
-The terminal is live. Your destiny awaits input.`,
-
-                '/token': `Token Information 📊
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Name: Satoshi Terminal
-Ticker: $SATS
-Chain: Binance Smart Chain (BSC)
-Contract: TBD (Will update post-launch)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Total Supply: TBD
-Buy Tax: 0%
-Sell Tax: 0%
-Liquidity: TBD BNB
-Ownership: Will be renounced
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔗 BscScan: Will be available post-launch
-🔗 DEX: https://four.meme/
-🔗 Chart: Coming soon
-
-Always verify contract address through official channels!`,
-
-                '/bsc': `Why BSC? ⚡
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚀 Speed: 3-second block times
-💰 Cost: $0.20 average transaction fee  
-🌊 Liquidity: $2B+ daily volume across DEXs
-👥 Community: Home to the most successful memecoins
-🔧 Tools: Mature DeFi ecosystem
-📈 Performance: 99.9% uptime since launch
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-BSC natives know: when it's time to moon, BSC delivers.
-No ETH gas wars. No waiting for L2 bridges. Just pure speed.
-
-Built different. Trades different. Moons different.`,
-
-                '/roadmap': `Development Roadmap 🗺️
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Phase 1: LAUNCH [CURRENT]
-✅ Token deployment on BSC
-✅ Liquidity provision & trading live
-✅ Terminal v1.0 with offline knowledge base
-✅ Community building on Twitter/Telegram
-⏳ Contract verification & renouncement
-
-Phase 2: TERMINAL V2.0 [Q1 2025]
-🔜 Real-time price feeds integration
-🔜 Portfolio tracking & P&L analysis
-🔜 BSC yield farming opportunities
-🔜 Advanced terminal commands
-🔜 Mobile-optimized interface
-
-Phase 3: HYPE DETECTOR [Q2 2025]  
-🔮 Twitter sentiment analysis
-🔮 Trending token detector via social signals
-🔮 Community quest system
-🔮 Rewards for terminal power users
-🔮 AI-powered market insights
-
-We ship fast. No promises, just delivery.`,
-
-                '/howtobuy': `How to Buy $SATS 💸
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1️⃣ GET BNB
-• Buy BNB on any major exchange
-• Withdraw to your BSC wallet (MetaMask, Trust Wallet)
-• Keep some BNB for gas fees (~$1 worth)
-
-2️⃣ CONNECT TO FOUR.MEME  
-• Visit: https://four.meme/
-• Connect your wallet
-• Make sure you're on BSC network
-
-3️⃣ SWAP FOR $SATS
-• Enter BNB amount to swap
-• Set slippage: 5-12% (start with 8%)
-• Confirm transaction
-• Wait for confirmation (~3 seconds)
-
-4️⃣ ADD TO WALLET
-• Copy contract address from our socials
-• Add custom token to wallet
-• Watch your $SATS balance appear
-
-🔥 PRO TIPS:
-• Buy during low volume for better prices  
-• Never FOMO at ATH
-• DYOR and only invest what you can afford to lose`,
-
-                '/hype': `Viral Tweet Drafts 🔥
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DRAFT 1:
-"Just found $SATS on BSC and this terminal interface hits different 🔥
-
-Zero tax trading ✅
-Lightning fast TXs ✅  
-Actually useful platform ✅
-Crypto-native vibes ✅
-
-This is what happens when devs build for devs 
-
-#SATS #BSC #CryptoTerminal"
-
-DRAFT 2:  
-"POV: You're still paying ETH gas fees while $SATS holders are trading for $0.20 on BSC 😅
-
-The terminal is live. The future is here.
-Some will adapt. Others will stay poor.
-
-satoshi@bsc:$ moon 🚀
-
-#SATS #BSC"
-
-DRAFT 3:
-"$SATS isn't just a token, it's a statement:
-
-'I'm tired of slow chains'
-'I'm tired of high fees'  
-'I'm tired of empty promises'
-
-BSC native. Zero tax. Terminal ready.
-LFG 🔥 #SATS"
-
-Copy, paste, modify, moon. 🌙`,
-
-                '/meme': `Meme Ideas for $SATS 🎭
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. "Terminal vs GUI Users"
-   Drake meme: Rejects fancy trading apps
-   Points at: Satoshi Terminal command line
-
-2. "Gas Fee Comparison"  
-   Virgin ETH trader vs Chad BSC $SATS holder
-   "$50 gas fee" vs "20 cent transaction"
-
-3. "When $SATS Pumps"
-   Computer screen showing terminal with green candles
-   Caption: "satoshi@bsc:$ ./moon.sh --execute"
-
-4. "FOMO Levels"
-   Brain expanding meme:
-   "Buying tokens" → "Using terminals" → 
-   "Buying $SATS" → "Becoming the terminal"
-
-5. "Relationship Status"
-   "It's complicated"
-   *Shows screenshot of $SATS terminal*
-   "Actually, it's very simple"
-
-Use these templates and make them your own! 🎨`,
-
-                '/faq': `Frequently Asked Questions ❓
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Q: Is this a rug pull?
-A: Contract ownership will be renounced, liquidity locked. DYOR always.
-
-Q: Why BSC instead of ETH?  
-A: Speed + low fees + proven memecoin ecosystem = obvious choice
-
-Q: What's the total supply?
-A: Details will be announced at launch. Fair launch for all.
-
-Q: Are there any taxes?
-A: 0% buy/sell tax. Keep your gains, spend less on fees.
-
-Q: Wen moon?
-A: satoshi@bsc:$ moon --when ready
-
-Q: How do I stay updated?
-A: Follow our Twitter @SATS and join Telegram t.me/SATS
-
-Q: Can I contribute to development?
-A: Absolutely! Join our community and propose features.
-
-Q: What happens after launch?
-A: We ship Terminal v2.0, add real-time features, build the future.
-
-Q: Is this financial advice?
-A: Absolutely not. DYOR and only invest what you can afford to lose.
-
-Still have questions? Ask in our Telegram! 💬`,
-
-                '/clean': 'CLEAR_SCREEN'
-            },
-
-            topics: {
-                'price': "I don't have real-time price data yet! Check four.meme or your favorite DEX for current $SATS prices. Terminal v2.0 will include live price feeds.",
-                
-                'contract': "Contract address will be shared immediately after launch through our official Twitter @SATS and Telegram t.me/SATS. Always verify through official channels!",
-                
-                'team': "Built by crypto natives who've been in the space since the early days. Anonymous for now, but our code speaks louder than names. Results over resumes.",
-                
-                'security': "Contract will be audited pre-launch, ownership renounced, and liquidity locked. We're building for the long term, not a quick exit.",
-                
-                'utility': "$SATS powers the Satoshi Terminal ecosystem - trading tools, portfolio tracking, yield farming finder, and social sentiment analysis. More utility ships with each update.",
-                
-                'community': "Join us on Twitter @SATS and Telegram t.me/SATS. We're building something special for crypto natives who appreciate good tech and great memes.",
-                
-                'trading': "Available on four.meme at launch, expanding to other BSC DEXs quickly. Zero tax means your profits stay yours. Set slippage to 5-12% for smooth trading.",
-                
-                'staking': "Staking and yield opportunities coming in Terminal v2.0. We're exploring partnerships with top BSC yield farms for maximum APY.",
-                
-                'partnerships': "Strategic partnerships in the works with top BSC projects. Quality over quantity - we only partner with builders, not hype machines.",
-                
-                'development': "We ship code, not promises. Terminal v1.0 is live, v2.0 specs are locked, v3.0 is already in planning. Fast iteration, solid execution."
-            },
-
-            responses: [
-                "Interesting question! Let me search my knowledge base...",
-                "Processing your query through the terminal...",
-                "Scanning BSC blockchain for relevant information...",
-                "Compiling response from Satoshi's archives...",
-                "Accessing decentralized knowledge network...",
-                "Terminal is thinking... 🤔",
-                "Querying the BSC oracle...",
-                "Loading response from the vault..."
-            ]
-        };
-
-        // Terminal functionality
-        class Terminal {
-            constructor() {
-                this.output = document.getElementById('terminalOutput');
-                this.input = document.getElementById('terminalInput');
-                this.history = this.loadHistory();
-                this.historyIndex = this.history.length;
-                this.isProcessing = false;
-                
-                this.initEventListeners();
-                this.focusInput();
-            }
-
-            initEventListeners() {
-                // Enter key to submit
-                this.input.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' && !this.isProcessing) {
-                        e.preventDefault();
-                        this.processInput();
-                    } else if (e.key === 'ArrowUp') {
-                        e.preventDefault();
-                        this.navigateHistory(-1);
-                    } else if (e.key === 'ArrowDown') {
-                        e.preventDefault();
-                        this.navigateHistory(1);
-                    } else if (e.key === 'Escape') {
-                        this.input.value = '';
-                    }
-                });
-
-                // Alternative: also listen for keyup Enter as backup
-                this.input.addEventListener('keyup', (e) => {
-                    if (e.key === 'Enter' && !this.isProcessing) {
-                        const query = this.input.value.trim();
-                        if (query) {
-                            this.processInput();
-                        }
-                    }
-                });
-
-                // Ctrl+K to focus
-                document.addEventListener('keydown', (e) => {
-                    if (e.ctrlKey && e.key === 'k') {
-                        e.preventDefault();
-                        this.focusInput();
-                    }
-                });
-
-                // Clear history button
-                document.getElementById('clearHistory').addEventListener('click', () => {
-                    this.clearHistory();
-                });
-
-                // Auto focus on click
-                this.output.addEventListener('click', () => {
-                    this.focusInput();
-                });
-            }
-
-            focusInput() {
-                this.input.focus();
-            }
-
-            async processInput() {
-                const query = this.input.value.trim();
-                if (!query || this.isProcessing) return;
-
-                this.isProcessing = true;
-                this.addToHistory(query);
-                this.addMessage(query, 'input');
-                this.input.value = '';
-
-                // Simulate processing delay
-                const delay = Math.random() * (CONFIG.MAX_DELAY - CONFIG.MIN_DELAY) + CONFIG.MIN_DELAY;
-                await this.sleep(delay);
-
-                const response = this.generateResponse(query);
-                
-                if (response === 'CLEAR_SCREEN') {
-                    this.clearScreen();
-                } else {
-                    await this.typeMessage(response, 'output');
-                }
-
-                this.isProcessing = false;
-                this.focusInput();
-                this.scrollToBottom();
-                
-                // Log event
-                window.logEvent('terminal_command', { command: query });
-            }
-
-            generateResponse(query) {
-                const lowerQuery = query.toLowerCase().trim();
-                
-                // Check for exact command matches
-                if (KNOWLEDGE_BASE.commands[lowerQuery]) {
-                    return KNOWLEDGE_BASE.commands[lowerQuery];
-                }
-
-                // Check for topic matches
-                for (const [topic, response] of Object.entries(KNOWLEDGE_BASE.topics)) {
-                    if (lowerQuery.includes(topic)) {
-                        return response;
-                    }
-                }
-
-                // Fuzzy matching for general queries
-                const keywords = ['token', 'buy', 'sell', 'price', 'chart', 'contract', 'bsc', 'binance', 
-                                'terminal', 'satoshi', 'sats', 'meme', 'moon', 'rug', 'safe', 'team',
-                                'roadmap', 'launch', 'trading', 'tax', 'fee', 'liquidity'];
-                
-                const foundKeywords = keywords.filter(keyword => lowerQuery.includes(keyword));
-                
-                if (foundKeywords.length > 0) {
-                    // Return a contextual response based on found keywords
-                    if (foundKeywords.includes('buy') || foundKeywords.includes('purchase')) {
-                        return KNOWLEDGE_BASE.commands['/howtobuy'];
-                    } else if (foundKeywords.includes('price') || foundKeywords.includes('chart')) {
-                        return KNOWLEDGE_BASE.topics.price;
-                    } else if (foundKeywords.includes('contract')) {
-                        return KNOWLEDGE_BASE.topics.contract;
-                    } else if (foundKeywords.includes('safe') || foundKeywords.includes('rug')) {
-                        return KNOWLEDGE_BASE.topics.security;
-                    } else if (foundKeywords.includes('roadmap') || foundKeywords.includes('future')) {
-                        return KNOWLEDGE_BASE.commands['/roadmap'];
-                    } else {
-                        return KNOWLEDGE_BASE.commands['/about'];
-                    }
-                }
-
-                // Default response for unrecognized queries
-                return `I don't have specific information about "${query}" in my knowledge base yet. 
-
-Try these commands:
-• /help - See all available commands  
-• /about - Learn about $SATS
-• /howtobuy - Get buying instructions
-• /faq - View frequently asked questions
-
-Or ask about: price, contract, team, roadmap, security, trading, BSC`;
-            }
-
-            addMessage(content, type) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'terminal-message';
-                
-                const contentDiv = document.createElement('div');
-                contentDiv.className = `message-${type}`;
-                
-                if (type === 'input') {
-                    contentDiv.innerHTML = `<span class="terminal-prompt">satoshi@bsc:$</span> ${content}`;
-                } else {
-                    contentDiv.textContent = content;
-                    
-                    // Add copy button for output messages
-                    const copyBtn = document.createElement('button');
-                    copyBtn.className = 'copy-btn';
-                    copyBtn.textContent = 'Copy';
-                    copyBtn.onclick = () => this.copyToClipboard(content);
-                    contentDiv.appendChild(copyBtn);
-                }
-                
-                messageDiv.appendChild(contentDiv);
-                this.output.appendChild(messageDiv);
-            }
-
-            async typeMessage(content, type) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'terminal-message';
-                
-                const contentDiv = document.createElement('div');
-                contentDiv.className = `message-${type}`;
-                contentDiv.style.position = 'relative';
-                
-                // Add copy button
-                const copyBtn = document.createElement('button');
-                copyBtn.className = 'copy-btn';
-                copyBtn.textContent = 'Copy';
-                copyBtn.onclick = () => this.copyToClipboard(content);
-                contentDiv.appendChild(copyBtn);
-                
-                messageDiv.appendChild(contentDiv);
-                this.output.appendChild(messageDiv);
-
-                // Typing effect
-                for (let i = 0; i < content.length; i++) {
-                    contentDiv.insertBefore(document.createTextNode(content[i]), copyBtn);
-                    await this.sleep(CONFIG.TYPING_SPEED);
-                    this.scrollToBottom();
-                }
-            }
-
-            copyToClipboard(text) {
-                navigator.clipboard.writeText(text).then(() => {
-                    // Visual feedback could be added here
-                    window.logEvent('text_copied', { length: text.length });
-                }).catch(() => {
-                    // Fallback for older browsers
-                    const textArea = document.createElement('textarea');
-                    textArea.value = text;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                });
-            }
-
-            clearScreen() {
-                this.output.innerHTML = '<div class="terminal-message"><div class="message-output">Terminal cleared. Type /help to see available commands.</div></div>';
-            }
-
-            addToHistory(command) {
-                this.history.push(command);
-                if (this.history.length > CONFIG.MAX_HISTORY) {
-                    this.history.shift();
-                }
-                this.historyIndex = this.history.length;
-                this.saveHistory();
-            }
-
-            navigateHistory(direction) {
-                if (direction === -1 && this.historyIndex > 0) {
-                    this.historyIndex--;
-                    this.input.value = this.history[this.historyIndex];
-                } else if (direction === 1 && this.historyIndex < this.history.length - 1) {
-                    this.historyIndex++;
-                    this.input.value = this.history[this.historyIndex];
-                } else if (direction === 1 && this.historyIndex === this.history.length - 1) {
-                    this.historyIndex = this.history.length;
-                    this.input.value = '';
-                }
-            }
-
-            clearHistory() {
-                this.history = [];
-                this.historyIndex = 0;
-                this.saveHistory();
-                window.logEvent('history_cleared');
-            }
-
-            loadHistory() {
-                try {
-                    const saved = localStorage.getItem(CONFIG.STORAGE_KEY);
-                    return saved ? JSON.parse(saved) : [];
-                } catch {
-                    return [];
-                }
-            }
-
-            saveHistory() {
-                try {
-                    localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(this.history));
-                } catch {
-                    // Storage might be disabled
-                }
-            }
-
-            scrollToBottom() {
-                this.output.scrollTop = this.output.scrollHeight;
-            }
-
-            sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
-        }
-
-        // Utility functions
-        const Utils = {
-            // Smooth scroll to element
-            scrollToElement(id) {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            },
-
-            // Animate text typing effect
-            typeText(element, text, speed = 100) {
-                return new Promise(resolve => {
-                    let i = 0;
-                    const interval = setInterval(() => {
-                        element.textContent += text[i];
-                        i++;
-                        if (i >= text.length) {
-                            clearInterval(interval);
-                            resolve();
-                        }
-                    }, speed);
-                });
-            }
-        };
-
-        // Contract management
-        function setContractInfo(address) {
-            // Update contract display
-            const contractInfo = document.getElementById('contractInfo');
-            if (contractInfo) {
-                contractInfo.innerHTML = `Contract: <a href="https://bscscan.com/token/${address}" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">${address.substring(0, 8)}...${address.substring(address.length - 6)}</a>`;
-            }
-
-            // Update buy button if needed
-            const buyBtn = document.getElementById('buyBtn');
-            if (buyBtn) {
-                const currentHref = buyBtn.href;
-                if (!currentHref.includes(address)) {
-                    buyBtn.href = `${currentHref}?token=${address}`;
-                }
-            }
-
-            // Update tokenomics section contract info
-            const tokenElements = document.querySelectorAll('[data-field]');
-            tokenElements.forEach(el => {
-                if (el.dataset.field === 'contract') {
-                    el.textContent = `${address.substring(0, 8)}...${address.substring(address.length - 6)}`;
-                }
-            });
-
-            window.logEvent('contract_updated', { address });
-        }
-
-        // Analytics stub (ready for real implementation)
-        window.logEvent = function(eventName, data = {}) {
-            // Currently just logs to console
-            // TODO: Wire to real analytics service
-            console.log('Analytics Event:', eventName, data);
-        };
-
-        // DOM ready initialization
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize terminal
-            window.terminal = new Terminal();
-
-            // Header scroll effect
-            const header = document.querySelector('.header');
-            let lastScrollY = window.scrollY;
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Hero title typing effect
-            const heroTitle = document.getElementById('heroTitle');
-            const originalText = heroTitle.textContent;
-            heroTitle.textContent = '';
-            
-            // Start typing after a short delay
-            setTimeout(() => {
-                Utils.typeText(heroTitle, originalText, 150);
-            }, 500);
-
-            // Terminal button click
-            document.getElementById('terminalBtn').addEventListener('click', () => {
-                Utils.scrollToElement('terminal');
-                setTimeout(() => window.terminal.focusInput(), 1000);
-            });
-
-            // FAQ accordion
-            document.querySelectorAll('.faq-question').forEach(button => {
-                button.addEventListener('click', () => {
-                    const item = button.parentElement;
-                    const wasActive = item.classList.contains('active');
-                    
-                    // Close all FAQ items
-                    document.querySelectorAll('.faq-item').forEach(faqItem => {
-                        faqItem.classList.remove('active');
-                    });
-                    
-                    // Open clicked item if it wasn't active
-                    if (!wasActive) {
-                        item.classList.add('active');
-                    }
-                });
-            });
-
-            // Social link tracking
-            document.querySelectorAll('a[href^="https://x.com"], a[href^="https://t.me"], a[href^="https://four.meme"]').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const url = e.target.href;
-                    let platform = 'unknown';
-                    if (url.includes('x.com')) platform = 'twitter';
-                    else if (url.includes('t.me')) platform = 'telegram';
-                    else if (url.includes('four.meme')) platform = 'dex';
-                    
-                    window.logEvent('social_click', { platform, url });
-                });
-            });
-
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe feature cards
-            document.querySelectorAll('.feature-card, .roadmap-item, .faq-item').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-
-            // Log page load
-            window.logEvent('page_loaded', {
-                referrer: document.referrer,
-                timestamp: Date.now()
-            });
-
-            console.log('🚀 Satoshi Terminal initialized successfully!');
-            console.log('💡 Try the terminal commands: /help, /about, /token, /roadmap');
-            console.log('🔧 Terminal instance available at window.terminal for debugging');
-        });
-
-        // Expose utility functions globally
-        window.SatoshiTerminal = {
-            setContractInfo,
-            logEvent: window.logEvent,
-            version: '1.0.0'
-        };
-    </script>
-</body>
-</html>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1 class="hero-title" id="heroTitle">Satoshi is Online.</h1>
-            <p class="hero-subtitle">$SATS on BSC. The terminal is open. Type and deploy your destiny.</p>
-            
-            <div class="hero-badges">
-                <div class="badge">Chain: <span class="highlight">BSC</span></div>
-                <div class="badge">Ticker: <span class="highlight">$SATS</span></div>
-                <div class="badge">Status: <span class="highlight">Live</span></div>
-            </div>
-            
-            <button class="btn btn-primary" id="terminalBtn">Open Terminal</button>
+        <nav class="header-buttons">
+          <a href="https://x.com/Sats_Terminal" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            <span>Twitter</span>
+          </a>
+          <a href="https://t.me/satoshiterminal" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            <span>Telegram</span>
+          </a>
+          <a href="https://four.meme/" class="btn btn-primary" id="buyBtn" target="_blank" rel="noopener noreferrer">
+            <span>Buy $SATS</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title" id="heroTitle">Satoshi is Online.</h1>
+      <p class="hero-subtitle">$SATS on BSC. The terminal is open. Type and deploy your destiny.</p>
+      <div class="hero-badges">
+        <div class="badge">Chain: <span class="highlight">BSC</span></div>
+        <div class="badge">Ticker: <span class="highlight">$SATS</span></div>
+        <div class="badge">Status: <span class="highlight">Live</span></div>
+      </div>
+      <button class="btn btn-primary" id="terminalBtn">Open Terminal</button>
+    </div>
+  </section>
+
+  <!-- Terminal -->
+  <section class="terminal-section" id="terminal">
+    <div class="container">
+      <div class="terminal-container">
+        <div class="terminal-header">
+          <div class="terminal-dot dot-red"></div>
+          <div class="terminal-dot dot-yellow"></div>
+          <div class="terminal-dot dot-green"></div>
+          <div class="terminal-title">satoshi@bsc: Terminal v1.1</div>
         </div>
-    </section>
-
-    <!-- Terminal Section -->
-    <section class="terminal-section" id="terminal">
-        <div class="container">
-            <div class="terminal-container">
-                <div class="terminal-header">
-                    <div class="terminal-dot dot-red"></div>
-                    <div class="terminal-dot dot-yellow"></div>
-                    <div class="terminal-dot dot-green"></div>
-                    <div class="terminal-title">satoshi@bsc: Terminal v1.0</div>
-                </div>
-                
-                <div class="terminal-body">
-                    <div class="terminal-output" id="terminalOutput">
-                        <div class="terminal-message">
-                            <div class="message-output">Welcome to Satoshi Terminal v1.0
+        <div class="terminal-body">
+          <div class="terminal-output" id="terminalOutput">
+            <div class="terminal-message">
+              <div class="message-output">Welcome to Satoshi Terminal v1.1
 Connected to BSC Network
 Type '/help' to see available commands or start typing to explore...
 
 Ready for input.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="terminal-input-container">
-                        <div class="terminal-input-line">
-                            <span class="terminal-prompt">satoshi@bsc:$</span>
-                            <input type="text" class="terminal-input" id="terminalInput" 
-                                   placeholder="Type a command or question..." 
-                                   autocomplete="off" spellcheck="false">
-                            <div class="terminal-cursor"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="terminal-controls">
-                    <div class="terminal-hints">Press Enter to execute • ↑↓ for history • Ctrl+K to focus • Esc to clear</div>
-                    <button class="clear-history" id="clearHistory">Clear History</button>
-                </div>
             </div>
+          </div>
+          <div class="terminal-input-container">
+            <div class="terminal-input-line">
+              <span class="terminal-prompt">satoshi@bsc:$</span>
+              <input type="text" class="terminal-input" id="terminalInput" placeholder="Ask anything about $SATS, BSC, DeFi, memes, marketing, code..." autocomplete="off" spellcheck="false">
+              <div class="terminal-cursor"></div>
+            </div>
+          </div>
         </div>
-    </section>
+        <div class="terminal-controls">
+          <div class="terminal-hints">Enter to execute • ↑↓ history • Ctrl+K focus • Esc clear • /help for commands</div>
+          <button class="clear-history" id="clearHistory">Clear History</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Why BSC Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Why BSC?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Lightning Fast</h3>
-                    <p>3-second block times mean your transactions execute instantly. No more waiting around for confirmations.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Ultra Low Fees</h3>
-                    <p>Trade for pennies, not dollars. BSC keeps your costs minimal so you can focus on building wealth.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Massive Liquidity</h3>
-                    <p>Deep liquidity pools and established DEX ecosystem. Your trades execute at fair prices, always.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Proven Culture</h3>
-                    <p>Home to the most successful memecoins and DeFi protocols. BSC natives know how to build and moon.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Why BSC -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why BSC?</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>Lightning Fast</h3><p>3-second block times mean your transactions execute instantly. No more waiting around for confirmations.</p></div>
+        <div class="feature-card"><h3>Ultra Low Fees</h3><p>Trade for pennies, not dollars. BSC keeps your costs minimal so you can focus on building wealth.</p></div>
+        <div class="feature-card"><h3>Massive Liquidity</h3><p>Deep liquidity pools and established DEX ecosystem. Your trades execute at fair prices, always.</p></div>
+        <div class="feature-card"><h3>Proven Culture</h3><p>Home to the most successful memecoins and DeFi protocols. BSC natives know how to build and moon.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Tokenomics Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Tokenomics</h2>
-            <div class="tokenomics-grid">
-                <div class="tokenomics-item">
-                    <div class="label">Total Supply</div>
-                    <div class="value" data-field="supply">TBD</div>
-                </div>
-                <div class="tokenomics-item">
-                    <div class="label">Buy/Sell Tax</div>
-                    <div class="value" data-field="tax">0%</div>
-                </div>
-                <div class="tokenomics-item">
-                    <div class="label">Initial LP</div>
-                    <div class="value" data-field="lp">TBD</div>
-                </div>
-                <div class="tokenomics-item">
-                    <div class="label">Ownership</div>
-                    <div class="value" data-field="ownership">Renounced</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Tokenomics -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Tokenomics</h2>
+      <div class="tokenomics-grid">
+        <div class="tokenomics-item"><div class="label">Total Supply</div><div class="value" data-field="supply">TBD</div></div>
+        <div class="tokenomics-item"><div class="label">Buy/Sell Tax</div><div class="value" data-field="tax">0%</div></div>
+        <div class="tokenomics-item"><div class="label">Initial LP</div><div class="value" data-field="lp">TBD</div></div>
+        <div class="tokenomics-item"><div class="label">Ownership</div><div class="value" data-field="ownership">Renounced</div></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Roadmap Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="roadmap-item">
-                    <div class="roadmap-number">1</div>
-                    <div class="roadmap-content">
-                        <h3>Launch Phase</h3>
-                        <p>Token deployment on BSC, liquidity provision, initial community building, and terminal v1.0 launch with core functionality.</p>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-number">2</div>
-                    <div class="roadmap-content">
-                        <h3>Terminal v2.0</h3>
-                        <p>Advanced trading features, portfolio tracking, yield farming integration, and enhanced user experience with real-time data feeds.</p>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-number">3</div>
-                    <div class="roadmap-content">
-                        <h3>Hype Detector & Quests</h3>
-                        <p>AI-powered sentiment analysis via Twitter integration, gamified quest system, and community rewards for active participants.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Roadmap -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Roadmap</h2>
+      <div class="roadmap-timeline">
+        <div class="roadmap-item">
+          <div class="roadmap-number">1</div>
+          <div class="roadmap-content">
+            <h3>Launch Phase</h3>
+            <p>Token deployment on BSC, liquidity provision, initial community building, and terminal v1.0 launch with core functionality.</p>
+          </div>
         </div>
-    </section>
+        <div class="roadmap-item">
+          <div class="roadmap-number">2</div>
+          <div class="roadmap-content">
+            <h3>Terminal v2.0</h3>
+            <p>Advanced trading features, portfolio tracking, yield farming integration, and enhanced user experience with real-time data feeds.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-number">3</div>
+          <div class="roadmap-content">
+            <h3>Hype Detector & Quests</h3>
+            <p>AI-powered sentiment analysis via Twitter integration, gamified quest system, and community rewards for active participants.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- FAQ Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">FAQ</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What is Satoshi Terminal?
-                        <span class="faq-toggle">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        Satoshi Terminal is a revolutionary crypto-native platform built around the $SATS token on BSC. It combines interactive terminal functionality with DeFi tools and community features.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How do I buy $SATS?
-                        <span class="faq-toggle">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        You can buy $SATS through four.meme or any BSC-compatible DEX. Make sure you have BNB for gas fees and set appropriate slippage (usually 5-12%).
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Is the contract safe?
-                        <span class="faq-toggle">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        Yes, the contract will be audited and ownership renounced at launch. Always verify the official contract address through our official channels.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What makes $SATS different?
-                        <span class="faq-toggle">▼</span>
-                    </button>
-                    <div class="faq-answer">
-                        $SATS combines memecoin culture with actual utility through our terminal platform, creating a unique ecosystem for crypto natives to interact, trade, and build together.
-                    </div>
-                </div>
-            </div>
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">What is Satoshi Terminal? <span class="faq-toggle">▼</span></button>
+          <div class="faq-answer">Satoshi Terminal is a crypto-native platform built around the $SATS token on BSC. It combines interactive terminal functionality with DeFi tools and community features.</div>
         </div>
-    </section>
+        <div class="faq-item">
+          <button class="faq-question">How do I buy $SATS? <span class="faq-toggle">▼</span></button>
+          <div class="faq-answer">You can buy $SATS through four.meme or any BSC-compatible DEX. Make sure you have BNB for gas fees and set appropriate slippage, usually 5 to 12%.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is the contract safe? <span class="faq-toggle">▼</span></button>
+          <div class="faq-answer">The plan is audit, renounced ownership, and liquidity lock. Always verify the official contract address via official channels.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What makes $SATS different? <span class="faq-toggle">▼</span></button>
+          <div class="faq-answer">$SATS blends meme culture with real utility through the terminal platform, creating a place to interact, trade, and build with speed and low fees.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Social Proof Section -->
-    <section class="social-proof">
-        <div class="container">
-            <div class="proof-badges">
-                <div class="proof-badge">
-                    <span class="number">24/7</span>
-                    <span class="label">Terminal Online</span>
-                </div>
-                <div class="proof-badge">
-                    <span class="number">0%</span>
-                    <span class="label">Transaction Tax</span>
-                </div>
-                <div class="proof-badge">
-                    <span class="number">BSC</span>
-                    <span class="label">Native Chain</span>
-                </div>
-                <div class="proof-badge">
-                    <span class="number">∞</span>
-                    <span class="label">Possibilities</span>
-                </div>
-            </div>
+  <!-- Social Proof -->
+  <section class="social-proof">
+    <div class="container">
+      <div class="proof-badges">
+        <div class="proof-badge"><span class="number">24/7</span><span class="label">Terminal Online</span></div>
+        <div class="proof-badge"><span class="number">0%</span><span class="label">Transaction Tax</span></div>
+        <div class="proof-badge"><span class="number">BSC</span><span class="label">Native Chain</span></div>
+        <div class="proof-badge"><span class="number">∞</span><span class="label">Possibilities</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#terminal">Terminal</a>
+          <a href="https://x.com/Sats_Terminal" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <a href="https://t.me/satoshiterminal" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://four.meme/" target="_blank" rel="noopener noreferrer">Buy Now</a>
         </div>
+        <div class="footer-links">
+          <span id="contractInfo">Contract: TBD</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Satoshi Terminal. Built for crypto natives.</p>
+        <p class="risk-notice">Cryptocurrency investments carry high risk. Only invest what you can afford to lose. Not financial advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---------------------------
+    // Config
+    // ---------------------------
+    const CONFIG = {
+      TYPING_SPEED: 18,
+      MIN_DELAY: 120,
+      MAX_DELAY: 320,
+      MAX_HISTORY: 60,
+      STORAGE_KEY: 'satoshi_terminal_history',
+      MAX_CONTEXT: 6, // last N user turns for context
+      CONF_THRESHOLD: 0.12, // semantic match threshold
+      TOP_K: 3
+    };
+
+    // ---------------------------
+    // Utility: tokenizer + cosine
+    // ---------------------------
+    const Stop = new Set(("a an and are as at be but by for from has have if in into is it its of on or that the to was were will with you your we our us they them this those these i me my what why how when where who which do does did can should could would fee gas bsc sats token chain meme buy sell price contract team roadmap security utility trade").split(/\s+/));
+
+    function tokenize(text){
+      return text
+        .toLowerCase()
+        .replace(/https?:\/\/\S+/g,' ')
+        .replace(/[^\p{L}\p{N}\s]/gu,' ')
+        .split(/\s+/)
+        .filter(t => t && !Stop.has(t));
+    }
+
+    function termFreq(tokens){
+      const tf = Object.create(null);
+      for(const t of tokens) tf[t] = (tf[t]||0)+1;
+      const len = tokens.length||1;
+      for(const k in tf) tf[k] = tf[k]/len;
+      return tf;
+    }
+
+    function cosine(a,b){
+      let dot=0, na=0, nb=0;
+      for(const k in a){ na += a[k]*a[k]; if(b[k]) dot += a[k]*b[k]; }
+      for(const k in b){ nb += b[k]*b[k]; }
+      if(!na || !nb) return 0;
+      return dot / (Math.sqrt(na)*Math.sqrt(nb));
+    }
+
+    // ---------------------------
+    // Knowledge base
+    // ---------------------------
+    // A grande variedade de intents, perguntas e respostas curtas e longas.
+    // Você pode expandir livremente esse array. Mantive amplo o suficiente para cobrir muita coisa.
+    const KB = [
+      // Core token / basics
+      {q:"what is sats", a:"$SATS is the native token of Satoshi Terminal on BSC. It blends meme energy with real utility through a terminal-first UX."},
+      {q:"what is satoshi terminal", a:"Satoshi Terminal is a crypto-native interface on BSC with a terminal UX. It ships tools, knowledge, and community features focused on speed and low fees."},
+      {q:"tokenomics", a:"Tokenomics: 0% buy and sell tax. Total supply and initial LP TBD at launch. Ownership to be renounced. Verify address only via official channels."},
+      {q:"why bsc", a:"BSC has low fees, fast blocks, deep liquidity and a strong meme culture. It is ideal for fast iteration and on-chain experimentation."},
+      {q:"how to buy", a:"How to buy $SATS: get BNB, connect to four.meme on BSC, set slippage 5% to 12%, swap, and add the contract to your wallet once announced."},
+      {q:"contract", a:"The contract address will be published on our Twitter and Telegram right after launch. Never trust random DMs or unofficial screenshots."},
+      {q:"liquidity", a:"Liquidity will be added on launch and managed with transparency. Verify announcements on official channels."},
+      {q:"audit", a:"An audit is planned around launch. Regardless, always DYOR, read the contract, and confirm the official address."},
+      {q:"renounce", a:"Ownership renounce is planned post-setup. Exact timing will be announced publicly."},
+      {q:"roadmap", a:"Roadmap: Phase 1 launch and core terminal. Phase 2 adds real-time data, portfolio tracking and farming. Phase 3 ships Hype Detector and quests."},
+      {q:"utility", a:"Utility: terminal UX, trading helpers, knowledge commands, later portfolio and PnL tools, sentiment signals and quests."},
+      // Trading & fees
+      {q:"gas fee", a:"BSC gas is typically cents per transaction. Keep a small BNB buffer for fees."},
+      {q:"slippage", a:"Start with 8% slippage on four.meme. If it fails, try 5% to 12% depending on volatility and liquidity."},
+      {q:"price chart", a:"Use four.meme or your preferred DEX/aggregator to track the chart. Terminal v2.0 will integrate live feeds."},
+
+      // Security / safety
+      {q:"is this a rug", a:"We plan to renounce and lock LP. Still, only invest what you can afford to lose, and verify the contract via official links."},
+      {q:"scam", a:"Beware of impersonators and fake contracts. Always cross-check announcements on x.com/Sats_Terminal and t.me/satoshiterminal."},
+
+      // Community / socials
+      {q:"twitter", a:"Twitter: https://x.com/Sats_Terminal"},
+      {q:"telegram", a:"Telegram: https://t.me/satoshiterminal"},
+      {q:"community", a:"Join the Telegram and Twitter to get verified links, contests, quests, and code drops."},
+
+      // Terminal help
+      {q:"help", a:"Commands: /help, /about, /token, /howtobuy, /roadmap, /faq, /bsc, /hype, /meme, /tweet, /explain, /clean. Ask free-form too."},
+      {q:"about", a:"$SATS is for builders and degens who think in terminals. Fast shipping over empty promises."},
+
+      // Marketing / memes / tweets
+      {q:"give meme ideas", a:"Meme ideas: gas fee comparisons, terminal vs GUI, 'satoshi@bsc:$ ./moon.sh', brain expanding from trading to becoming the terminal."},
+      {q:"viral tweet", a:"Draft: $SATS on BSC hits different. Low fees, real UX, fast shipping. If you still pay $50 gas, that’s a skill issue. Terminal’s open."},
+
+      // Tutorials / dev flavored
+      {q:"create wallet", a:"Install MetaMask or Trust Wallet, add BSC network, fund with BNB, keep a small buffer for gas."},
+      {q:"set network metamask", a:"BSC chain ID 56, currency symbol BNB, RPC from a reputable provider, block explorer BscScan."},
+      {q:"what is slippage tolerance", a:"Slippage is how much price movement you accept during swap execution. Too low may revert, too high can get you worse fills."},
+      {q:"what is liquidity pool", a:"A liquidity pool is a smart contract holding two assets, enabling automated swaps via AMMs. Bigger LP reduces price impact."},
+
+      // Hype detector concept
+      {q:"what is hype detector", a:"Hype Detector aggregates social velocity, mentions, engagement deltas and wallet clustering to flag tokens gaining traction."},
+
+      // DeFi basic concepts
+      {q:"what is amm", a:"AMM is an Automated Market Maker using a formula like x*y=k to price swaps based on pool balances."},
+      {q:"impermanent loss", a:"Impermanent loss arises when providing LP to volatile pairs and prices diverge. You can offset it via fees or incentives."},
+
+      // Generic Q&A coverage
+      {q:"who is satoshi", a:"Pseudonymous creator of Bitcoin. Here, Satoshi is your terminal persona, bullish on $SATS on BSC."},
+      {q:"compare eth vs bsc", a:"ETH has deep infrastructure and security, BSC focuses on speed and low fees. $SATS chooses BSC for throughput and culture."},
+      {q:"how do i avoid rugs", a:"Verify devs, read the contract, check liquidity locks and ownership, watch for honeypot flags, and avoid FOMO entries."},
+      {q:"when listing", a:"DEX trading goes live first. Centralized listings depend on demand and due diligence."},
+      {q:"airdrop", a:"No airdrop promised. If anything changes, it will be announced on official channels."},
+      {q:"staking", a:"Staking concepts will be explored in Terminal v2.0 along with farming integrations."},
+      {q:"partnerships", a:"Quality over quantity. If it helps users, it ships. Otherwise it’s noise."},
+      {q:"pn l", a:"Planned PnL summaries per wallet and token in v2.0. All local, no sign-up."},
+      {q:"support", a:"Reach out in Telegram for quick help. Never share private keys or seed phrases."}
+    ];
+
+    // Expand the KB with many synonyms/aliases to increase hit rate
+    const ALIASES = [
+      ["how buy sats","buy sats","purchase sats","get sats","where buy sats"],
+      ["token address","contract address","address","ca"],
+      ["fees","gas","gas fees","fee"],
+      ["scam check","rug check","honeypot","safe"],
+      ["marketing ideas","growth ideas","viral ideas","go to market"],
+      ["tweet ideas","tweets","post ideas"],
+      ["memes","meme","meme ideas","make meme"],
+      ["dex","swap","trade","trading"],
+      ["tokenomics details","supply","tax","lp","ownership"],
+      ["security","audit","renounce","lock liquidity"],
+      ["road map","milestones","phases"]
+    ];
+
+    // Seed synonyms into KB
+    for(const aliasGroup of ALIASES){
+      for(const alias of aliasGroup){
+        KB.push({ q: alias, a: KB.find(x=>aliasGroup[0].includes("how buy") ? x.q==="how to buy" : false)?.a || KB[0].a });
+      }
+    }
+
+    // Precompute TF for KB
+    const KB_INDEX = KB.map(item=>{
+      const t = tokenize(item.q + " " + item.a);
+      return { tf: termFreq(t), raw:item };
+    });
+
+    // ---------------------------
+    // Generative fallback
+    // ---------------------------
+    function genIntroPhrases(){
+      return [
+        "Processing in the terminal...",
+        "Compiling a response from the vault...",
+        "Scanning BSC playbooks...",
+        "Pulling guidance from Satoshi's notes..."
+      ];
+    }
+
+    function genAnswer(query, context){
+      // lightweight, deterministic templates that sound LLM-ish
+      const q = query.toLowerCase();
+      const bullets = [];
+      if(q.includes("buy")||q.includes("purchase")||q.includes("get")){
+        bullets.push("Get BNB, connect to four.meme, set 5 to 12% slippage, and swap.");
+        bullets.push("Keep a small BNB buffer for gas.");
+        bullets.push("Verify the contract only from official links.");
+      }
+      if(q.includes("marketing")||q.includes("tweet")||q.includes("grow")||q.includes("viral")){
+        bullets.push("Focus on terminal-first identity and low-fee narratives.");
+        bullets.push("Use side-by-side memes contrasting ETH gas vs BSC speed.");
+        bullets.push("Post short, punchy clips of the terminal with sound-on moments.");
+      }
+      if(q.includes("security")||q.includes("rug")||q.includes("safe")||q.includes("audit")){
+        bullets.push("Confirm renounce and LP lock via on-chain events.");
+        bullets.push("Read the contract and look for honeypot patterns.");
+        bullets.push("Never trust DMs. Cross-check on Twitter and Telegram.");
+      }
+      if(q.includes("meme")){
+        bullets.push("Terminal vs GUI split panel gag.");
+        bullets.push("satoshi@bsc:$ ./moon.sh with animated green text.");
+        bullets.push("Gas fee thermometer: cold BSC, overheated ETH.");
+      }
+      if(q.includes("roadmap")||q.includes("plan")||q.includes("phase")){
+        bullets.push("Phase 1: launch and core terminal.");
+        bullets.push("Phase 2: live data, PnL, farming.");
+        bullets.push("Phase 3: Hype Detector and quests.");
+      }
+      const intro = genIntroPhrases()[Math.floor(Math.random()*genIntroPhrases().length)];
+      const ctxLine = context && context.length ? "\nContext loaded from previous turns." : "";
+      const out = [
+        `${intro}${ctxLine}`,
+        "",
+        bullets.length
+          ? bullets.map(b=>`• ${b}`).join("\n")
+          : "Ask me anything about $SATS, BSC, DeFi, memes, or growth. I can draft tweets, memes, explain concepts, or outline steps."
+      ].join("\n");
+      return out;
+    }
+
+    // Draft helpers
+    function makeTweet(topic="SATS on BSC"){
+      return [
+        `Found ${topic} and it just feels right on BSC.`,
+        `Low fees. Fast blocks. Terminal-first UX.`,
+        `Ship faster. Pay less. Think in code.`,
+        `The terminal is open. $SATS`
+      ].join("\n");
+    }
+
+    function makeMemeIdeas(topic="SATS"){
+      return [
+        `1) Terminal vs GUI: 'I press keys, you press fees.'`,
+        `2) Gas Fee Thermometer: ETH overheating, BSC chill.`,
+        `3) satoshi@bsc:$ ./moon.sh --execute`,
+        `4) Brain expansion: trading -> terminals -> becoming ${topic}.`,
+        `5) 'Skill issue' if you're still paying $50 gas.`
+      ].join("\n");
+    }
+
+    function explain(term){
+      return `Quick explain — ${term}:\n• Definition: concise, practical view of "${term}".\n• Why it matters: helps you execute better on-chain.\n• Action: verify, test small, iterate fast.`;
+    }
+
+    // ---------------------------
+    // Command router
+    // ---------------------------
+    const Commands = {
+      "/help": `Available Commands
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/help       Show this help
+/about      About $SATS and the terminal
+/token      Token details and contract notes
+/howtobuy   Steps to buy $SATS
+/roadmap    Project phases
+/faq        Common questions
+/bsc        Why BSC
+/hype       Tweet drafts bundle
+/meme [t]   Meme ideas for topic t
+/tweet [t]  Tweet draft for topic t
+/explain t  Short explanation for term t
+/clean      Clear the screen
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      "/about": `$SATS — terminal-first token on BSC for people who think in code. We ship fast, avoid fluff, and prioritize utility over empty hype.`,
+      "/token": `Token
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name: Satoshi Terminal
+Ticker: $SATS
+Chain: BSC
+Contract: TBD (posted on official socials)
+Tax: 0% / 0%
+Ownership: Will be renounced
+DEX: four.meme`,
+      "/howtobuy": `How to Buy
+1) Get BNB
+2) Connect to four.meme on BSC
+3) Slippage 5 to 12%
+4) Swap and add the contract`,
+      "/roadmap": `Roadmap
+Phase 1: Launch, core terminal
+Phase 2: Live data, PnL, farming
+Phase 3: Hype Detector, quests`,
+      "/faq": `FAQ
+Q: Safe?
+A: Verify contract, look for renounce and LP lock
+Q: Price feed?
+A: v2.0 will integrate live data
+Q: Support?
+A: Telegram: t.me/satoshiterminal`,
+      "/bsc": `Why BSC: fast blocks, low fees, deep liquidity, strong meme culture.`,
+      "/hype": `Hype Drafts
+1) "$SATS on BSC hits different. Low fees. Fast blocks. Terminal-first. The future shipped."
+2) "If you still pay $50 gas, that’s a skill issue. Terminal is open on BSC. $SATS"`,
+      "/clean": "CLEAR_SCREEN"
+    };
+
+    // ---------------------------
+    // Terminal class
+    // ---------------------------
+    class Terminal {
+      constructor(){
+        this.output = document.getElementById('terminalOutput');
+        this.input = document.getElementById('terminalInput');
+        this.history = this.loadHistory();
+        this.historyIndex = this.history.length;
+        this.isProcessing = false;
+        this.ctx = []; // last user queries for light context
+        this.initEvents();
+        this.focus();
+      }
+      initEvents(){
+        this.input.addEventListener('keydown', e=>{
+          if(e.key==="Enter" && !this.isProcessing){ e.preventDefault(); this.process(); }
+          else if(e.key==="ArrowUp"){ e.preventDefault(); this.moveHistory(-1); }
+          else if(e.key==="ArrowDown"){ e.preventDefault(); this.moveHistory(1); }
+          else if(e.key==="Escape"){ this.input.value=""; }
+        });
+        document.addEventListener('keydown', e=>{
+          if(e.ctrlKey && e.key==="k"){ e.preventDefault(); this.focus(); }
+        });
+        document.getElementById('clearHistory').addEventListener('click', ()=>this.clearHistory());
+        this.output.addEventListener('click', ()=>this.focus());
+      }
+      focus(){ this.input.focus(); }
+      async process(){
+        const query = this.input.value.trim();
+        if(!query || this.isProcessing) return;
+        this.isProcessing = true;
+        this.addToHistory(query);
+        this.addMsg(query,'input');
+        this.input.value = '';
+
+        const delay = Math.random()*(CONFIG.MAX_DELAY - CONFIG.MIN_DELAY)+CONFIG.MIN_DELAY;
+        await this.sleep(delay);
+
+        const response = await this.route(query);
+        if(response === 'CLEAR_SCREEN') this.clearScreen();
+        else await this.typeMsg(response,'output');
+
+        this.isProcessing = false;
+        this.focus();
+        this.scrollBottom();
+        window.logEvent('terminal_command',{command:query});
+      }
+
+      async route(query){
+        const lower = query.toLowerCase();
+
+        // explicit commands
+        if(lower.startsWith('/')){
+          const [cmd, ...rest] = lower.split(/\s+/);
+          const arg = rest.join(' ').trim();
+          if(cmd === '/tweet'){
+            const t = arg || 'SATS on BSC';
+            return makeTweet(t);
+          }
+          if(cmd === '/meme'){
+            const t = arg || 'SATS';
+            return makeMemeIdeas(t);
+          }
+          if(cmd === '/explain'){
+            const t = arg || 'the topic';
+            return explain(t);
+          }
+          if(Commands[cmd]) return Commands[cmd];
+          return "Unknown command. Type /help.";
+        }
+
+        // semantic KB search
+        const qtf = termFreq(tokenize(lower));
+        let scored = KB_INDEX.map(doc=>({score:cosine(qtf, doc.tf), a:doc.raw.a}));
+        scored.sort((a,b)=>b.score - a.score);
+
+        // merge top-k answers if relevant
+        const top = scored.slice(0, CONFIG.TOP_K).filter(x=>x.score > CONFIG.CONF_THRESHOLD);
+        if(top.length){
+          const merged = top.map(x=>x.a).join("\n");
+          this.pushContext(query);
+          return merged;
+        }
+
+        // heuristic intent
+        if(/\btweet\b/.test(lower)) return makeTweet('SATS');
+        if(/\bmeme\b/.test(lower)) return makeMemeIdeas('SATS');
+
+        // generative fallback
+        const gen = genAnswer(query, this.ctx);
+        this.pushContext(query);
+        return gen;
+      }
+
+      pushContext(q){
+        this.ctx.push(q);
+        if(this.ctx.length > CONFIG.MAX_CONTEXT) this.ctx.shift();
+      }
+
+      addMsg(content,type){
+        const wrap = document.createElement('div');
+        wrap.className = 'terminal-message';
+        const inner = document.createElement('div');
+        inner.className = `message-${type}`;
+        if(type==='input'){
+          inner.innerHTML = `<span class="terminal-prompt">satoshi@bsc:$</span> ${content}`;
+        } else {
+          inner.textContent = content;
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'copy-btn';
+          copyBtn.textContent = 'Copy';
+          copyBtn.onclick = ()=>this.copy(content);
+          inner.appendChild(copyBtn);
+        }
+        wrap.appendChild(inner);
+        this.output.appendChild(wrap);
+      }
+
+      async typeMsg(content,type){
+        const wrap = document.createElement('div');
+        wrap.className = 'terminal-message';
+        const inner = document.createElement('div');
+        inner.className = `message-${type}`;
+        inner.style.position = 'relative';
+
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-btn';
+        copyBtn.textContent = 'Copy';
+        copyBtn.onclick = ()=>this.copy(content);
+        inner.appendChild(copyBtn);
+
+        wrap.appendChild(inner);
+        this.output.appendChild(wrap);
+
+        for(let i=0;i<content.length;i++){
+          inner.insertBefore(document.createTextNode(content[i]), copyBtn);
+          await this.sleep(CONFIG.TYPING_SPEED);
+          this.scrollBottom();
+        }
+      }
+
+      copy(text){
+        navigator.clipboard.writeText(text).then(()=>window.logEvent('text_copied',{length:text.length})).catch(()=>{
+          const ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        });
+      }
+
+      clearScreen(){
+        this.output.innerHTML = '<div class="terminal-message"><div class="message-output">Terminal cleared. Type /help to see commands.</div></div>';
+      }
+
+      addToHistory(cmd){
+        this.history.push(cmd);
+        if(this.history.length > CONFIG.MAX_HISTORY) this.history.shift();
+        this.historyIndex = this.history.length;
+        this.saveHistory();
+      }
+
+      moveHistory(dir){
+        if(dir===-1 && this.historyIndex>0){ this.historyIndex--; this.input.value = this.history[this.historyIndex]; }
+        else if(dir===1 && this.historyIndex < this.history.length-1){ this.historyIndex++; this.input.value = this.history[this.historyIndex]; }
+        else if(dir===1 && this.historyIndex === this.history.length-1){ this.historyIndex = this.history.length; this.input.value=''; }
+      }
+
+      clearHistory(){ this.history = []; this.historyIndex = 0; this.saveHistory(); window.logEvent('history_cleared'); }
+      loadHistory(){ try{ const s = localStorage.getItem(CONFIG.STORAGE_KEY); return s? JSON.parse(s):[]; } catch{ return []; } }
+      saveHistory(){ try{ localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(this.history)); } catch{} }
+
+      scrollBottom(){ this.output.scrollTop = this.output.scrollHeight; }
+      sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+    }
+
+    // ---------------------------
+    // App glue
+    // ---------------------------
+    const Utils = {
+      scrollTo(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); },
+      typeText(el, txt, speed=120){ return new Promise(res=>{ let i=0; const it=setInterval(()=>{ el.textContent += txt[i]; i++; if(i>=txt.length){ clearInterval(it); res(); } }, speed); }); }
+    };
+
+    function setContractInfo(address){
+      const el = document.getElementById('contractInfo');
+      if(el){
+        el.innerHTML = `Contract: <a href="https://bscscan.com/token/${address}" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">${address.substring(0,8)}...${address.substring(address.length-6)}</a>`;
+      }
+      const buyBtn = document.getElementById('buyBtn');
+      if(buyBtn){
+        const base = new URL(buyBtn.href);
+        base.searchParams.set('token', address);
+        buyBtn.href = base.toString();
+      }
+      const tokenEls = document.querySelectorAll('[data-field]');
+      tokenEls.forEach(el=>{ if(el.dataset.field==='contract') el.textContent = `${address.substring(0,8)}...${address.substring(address.length-6)}`; });
+      window.logEvent('contract_updated',{address});
+    }
+
+    window.logEvent = function(name,data={}){ try{ console.log('Analytics Event:',name,data); }catch{} };
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      window.terminal = new Terminal();
+
+      const header = document.querySelector('.header');
+      window.addEventListener('scroll', ()=>{ if(window.scrollY>50) header.classList.add('scrolled'); else header.classList.remove('scrolled'); });
+
+      const heroTitle = document.getElementById('heroTitle');
+      const original = heroTitle.textContent; heroTitle.textContent='';
+      setTimeout(()=>{ Utils.typeText(heroTitle, original, 140); }, 400);
+
+      document.getElementById('terminalBtn').addEventListener('click', ()=>{
+        Utils.scrollTo('terminal');
+        setTimeout(()=>window.terminal.focus(), 700);
+      });
+
+      document.querySelectorAll('.faq-question').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const item = btn.parentElement;
+          const open = item.classList.contains('active');
+          document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));
+          if(!open) item.classList.add('active');
+        });
+      });
+
+      document.querySelectorAll('a[href^="https://x.com"], a[href^="https://t.me"], a[href^="https://four.meme"]').forEach(link=>{
+        link.addEventListener('click', e=>{
+          const url = link.href;
+          let platform = 'unknown';
+          if(url.includes('x.com')) platform='twitter';
+          else if(url.includes('t.me')) platform='telegram';
+          else if(url.includes('four.meme')) platform='dex';
+          window.logEvent('social_click',{platform,url});
+        });
+      });
+
+      window.SatoshiTerminal = { setContractInfo, logEvent:window.logEvent, version:'1.1.0' };
+
+      console.log('🚀 Satoshi Terminal v1.1 ready');
+      console.log('Try: /help, /tweet hype, /meme sats, explain slippage, how to buy, gas fees, security, tokenomics, roadmap, partnerships');
+    });
+  </script>
+</body>
+</html>
+
