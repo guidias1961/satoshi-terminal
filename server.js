@@ -46,7 +46,7 @@ app.post("/api/ai", async (req, res) => {
         "Authorization": `Bearer ${OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: "gpt-5-mini",
         temperature: 0.8,
         messages: [{ role: "system", content: system }, ...recent, { role: "user", content: prompt }]
       })
