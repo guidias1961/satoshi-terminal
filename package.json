@@ -1,0 +1,17 @@
+{
+  "name": "satoshi-terminal-sats",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "rate-limiter-flexible": "^5.0.3",
+    "sirv": "^2.0.4"
+  }
+}
+
