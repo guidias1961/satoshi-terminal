@@ -13,8 +13,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(express.json());
 
-// servir arquivos estáticos (index.html, logo.png etc.)
-app.use(express.static(__dirname));
+// servir arquivos estáticos da pasta public
+app.use(express.static(path.join(__dirname, "public")));
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -30,16 +30,12 @@ If asked about hype detection, describe signals like velocity of mentions, influ
 Always keep $SATS context in mind and push momentum when relevant.
 `;
 
-// healthcheck
-app.get("/healthz", (_req, res) => res.json({ ok: true }));
-
 // endpoint esperado pelo front
 app.post("/api/ai", async (req, res) => {
   try {
     const prompt = String(req.body?.prompt || "").slice(0, 4000);
     const history = Array.isArray(req.body?.history) ? req.body.history.slice(-10) : [];
 
-    // compacta o histórico em poucas linhas para dar contexto
     const historyText = history.map((h, i) => `#${i + 1}: ${h}`).join("\n");
 
     const input = [
@@ -61,9 +57,9 @@ app.post("/api/ai", async (req, res) => {
   }
 });
 
-// fallback para SPA simples
+// fallback para o index.html dentro de /public
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 const PORT = process.env.PORT || 8080;
