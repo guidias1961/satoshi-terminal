@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satoshi Terminal | $SATS Token on BSC - The Terminal is Open</title>
     <meta name="description" content="$SATS on BSC - Interactive terminal for crypto natives. Trade, explore, and deploy your destiny on Binance Smart Chain.">
-    <meta name="canonical" href="https://satoshiterminal.com">
+    <meta name="canonical" href="https://satoshi-terminal.sbs">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Satoshi Terminal | $SATS Token on BSC">
     <meta property="og:description" content="$SATS on BSC - Interactive terminal for crypto natives. The terminal is open.">
     <meta property="og:image" content="logo.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://satoshiterminal.com">
+    <meta property="og:url" content="https://satoshi-terminal.sbs">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -762,8 +762,728 @@
                         <span>Buy $SATS</span>
                     </a>
                 </nav>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#terminal">Terminal</a>
+                    <a href="https://x.com/Sats_Terminal" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    <a href="https://t.me/satoshiterminal" target="_blank" rel="noopener noreferrer">Telegram</a>
+                    <a href="https://four.meme/" target="_blank" rel="noopener noreferrer">Buy Now</a>
+                </div>
+                <div class="footer-links">
+                    <span id="contractInfo">Contract: TBD</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Satoshi Terminal. Built for crypto natives.</p>
+                <p class="risk-notice">
+                    Cryptocurrency investments carry high risk. Only invest what you can afford to lose. Not financial advice.
+                </p>
             </div>
         </div>
+    </footer>
+
+    <script>
+        // Configuration
+        const CONFIG = {
+            TYPING_SPEED: 30,
+            MIN_DELAY: 200,
+            MAX_DELAY: 600,
+            MAX_HISTORY: 30,
+            STORAGE_KEY: 'satoshi_terminal_history'
+        };
+
+        // Knowledge Base - Embedded offline responses
+        const KNOWLEDGE_BASE = {
+            commands: {
+                '/help': `Available Commands:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/help      - Show this help menu
+/about     - Learn about $SATS token
+/token     - View token details and contract info  
+/bsc       - Why we chose Binance Smart Chain
+/roadmap   - Development roadmap and future plans
+/howtobuy  - Step-by-step buying guide
+/hype      - Generate viral tweet drafts
+/meme      - Get meme ideas for $SATS
+/faq       - Frequently asked questions
+/clean     - Clear terminal screen
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+You can also type any question and I'll search my knowledge base!`,
+
+                '/about': `$SATS - The Terminal Token 🚀
+
+Built for crypto natives who live in terminals, think in code, and deploy at light speed. 
+
+$SATS isn't just another memecoin—it's the command center for the next generation of BSC degens. Our interactive terminal gives you real-time insights, trading tools, and community features that actually matter.
+
+Why $SATS?
+• Zero tax trading (keep your gains)
+• Lightning-fast BSC transactions  
+• Terminal-native user experience
+• Built by devs, for devs
+• Community-driven development
+• Actual utility beyond the hype
+
+The terminal is live. Your destiny awaits input.`,
+
+                '/token': `Token Information 📊
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name: Satoshi Terminal
+Ticker: $SATS
+Chain: Binance Smart Chain (BSC)
+Contract: TBD (Will update post-launch)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Total Supply: TBD
+Buy Tax: 0%
+Sell Tax: 0%
+Liquidity: TBD BNB
+Ownership: Will be renounced
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔗 BscScan: Will be available post-launch
+🔗 DEX: https://four.meme/
+🔗 Chart: Coming soon
+
+Always verify contract address through official channels!`,
+
+                '/bsc': `Why BSC? ⚡
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 Speed: 3-second block times
+💰 Cost: $0.20 average transaction fee  
+🌊 Liquidity: $2B+ daily volume across DEXs
+👥 Community: Home to the most successful memecoins
+🔧 Tools: Mature DeFi ecosystem
+📈 Performance: 99.9% uptime since launch
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BSC natives know: when it's time to moon, BSC delivers.
+No ETH gas wars. No waiting for L2 bridges. Just pure speed.
+
+Built different. Trades different. Moons different.`,
+
+                '/roadmap': `Development Roadmap 🗺️
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Phase 1: LAUNCH [CURRENT]
+✅ Token deployment on BSC
+✅ Liquidity provision & trading live
+✅ Terminal v1.0 with offline knowledge base
+✅ Community building on Twitter/Telegram
+⏳ Contract verification & renouncement
+
+Phase 2: TERMINAL V2.0 [Q1 2025]
+🔜 Real-time price feeds integration
+🔜 Portfolio tracking & P&L analysis
+🔜 BSC yield farming opportunities
+🔜 Advanced terminal commands
+🔜 Mobile-optimized interface
+
+Phase 3: HYPE DETECTOR [Q2 2025]  
+🔮 Twitter sentiment analysis
+🔮 Trending token detector via social signals
+🔮 Community quest system
+🔮 Rewards for terminal power users
+🔮 AI-powered market insights
+
+We ship fast. No promises, just delivery.`,
+
+                '/howtobuy': `How to Buy $SATS 💸
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1️⃣ GET BNB
+• Buy BNB on any major exchange
+• Withdraw to your BSC wallet (MetaMask, Trust Wallet)
+• Keep some BNB for gas fees (~$1 worth)
+
+2️⃣ CONNECT TO FOUR.MEME  
+• Visit: https://four.meme/
+• Connect your wallet
+• Make sure you're on BSC network
+
+3️⃣ SWAP FOR $SATS
+• Enter BNB amount to swap
+• Set slippage: 5-12% (start with 8%)
+• Confirm transaction
+• Wait for confirmation (~3 seconds)
+
+4️⃣ ADD TO WALLET
+• Copy contract address from our socials
+• Add custom token to wallet
+• Watch your $SATS balance appear
+
+🔥 PRO TIPS:
+• Buy during low volume for better prices  
+• Never FOMO at ATH
+• DYOR and only invest what you can afford to lose`,
+
+                '/hype': `Viral Tweet Drafts 🔥
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DRAFT 1:
+"Just found $SATS on BSC and this terminal interface hits different 🔥
+
+Zero tax trading ✅
+Lightning fast TXs ✅  
+Actually useful platform ✅
+Crypto-native vibes ✅
+
+This is what happens when devs build for devs 
+
+#SATS #BSC #CryptoTerminal"
+
+DRAFT 2:  
+"POV: You're still paying ETH gas fees while $SATS holders are trading for $0.20 on BSC 😅
+
+The terminal is live. The future is here.
+Some will adapt. Others will stay poor.
+
+satoshi@bsc:$ moon 🚀
+
+#SATS #BSC"
+
+DRAFT 3:
+"$SATS isn't just a token, it's a statement:
+
+'I'm tired of slow chains'
+'I'm tired of high fees'  
+'I'm tired of empty promises'
+
+BSC native. Zero tax. Terminal ready.
+LFG 🔥 #SATS"
+
+Copy, paste, modify, moon. 🌙`,
+
+                '/meme': `Meme Ideas for $SATS 🎭
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. "Terminal vs GUI Users"
+   Drake meme: Rejects fancy trading apps
+   Points at: Satoshi Terminal command line
+
+2. "Gas Fee Comparison"  
+   Virgin ETH trader vs Chad BSC $SATS holder
+   "$50 gas fee" vs "20 cent transaction"
+
+3. "When $SATS Pumps"
+   Computer screen showing terminal with green candles
+   Caption: "satoshi@bsc:$ ./moon.sh --execute"
+
+4. "FOMO Levels"
+   Brain expanding meme:
+   "Buying tokens" → "Using terminals" → 
+   "Buying $SATS" → "Becoming the terminal"
+
+5. "Relationship Status"
+   "It's complicated"
+   *Shows screenshot of $SATS terminal*
+   "Actually, it's very simple"
+
+Use these templates and make them your own! 🎨`,
+
+                '/faq': `Frequently Asked Questions ❓
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Q: Is this a rug pull?
+A: Contract ownership will be renounced, liquidity locked. DYOR always.
+
+Q: Why BSC instead of ETH?  
+A: Speed + low fees + proven memecoin ecosystem = obvious choice
+
+Q: What's the total supply?
+A: Details will be announced at launch. Fair launch for all.
+
+Q: Are there any taxes?
+A: 0% buy/sell tax. Keep your gains, spend less on fees.
+
+Q: Wen moon?
+A: satoshi@bsc:$ moon --when ready
+
+Q: How do I stay updated?
+A: Follow our Twitter @SATS and join Telegram t.me/SATS
+
+Q: Can I contribute to development?
+A: Absolutely! Join our community and propose features.
+
+Q: What happens after launch?
+A: We ship Terminal v2.0, add real-time features, build the future.
+
+Q: Is this financial advice?
+A: Absolutely not. DYOR and only invest what you can afford to lose.
+
+Still have questions? Ask in our Telegram! 💬`,
+
+                '/clean': 'CLEAR_SCREEN'
+            },
+
+            topics: {
+                'price': "I don't have real-time price data yet! Check four.meme or your favorite DEX for current $SATS prices. Terminal v2.0 will include live price feeds.",
+                
+                'contract': "Contract address will be shared immediately after launch through our official Twitter @SATS and Telegram t.me/SATS. Always verify through official channels!",
+                
+                'team': "Built by crypto natives who've been in the space since the early days. Anonymous for now, but our code speaks louder than names. Results over resumes.",
+                
+                'security': "Contract will be audited pre-launch, ownership renounced, and liquidity locked. We're building for the long term, not a quick exit.",
+                
+                'utility': "$SATS powers the Satoshi Terminal ecosystem - trading tools, portfolio tracking, yield farming finder, and social sentiment analysis. More utility ships with each update.",
+                
+                'community': "Join us on Twitter @SATS and Telegram t.me/SATS. We're building something special for crypto natives who appreciate good tech and great memes.",
+                
+                'trading': "Available on four.meme at launch, expanding to other BSC DEXs quickly. Zero tax means your profits stay yours. Set slippage to 5-12% for smooth trading.",
+                
+                'staking': "Staking and yield opportunities coming in Terminal v2.0. We're exploring partnerships with top BSC yield farms for maximum APY.",
+                
+                'partnerships': "Strategic partnerships in the works with top BSC projects. Quality over quantity - we only partner with builders, not hype machines.",
+                
+                'development': "We ship code, not promises. Terminal v1.0 is live, v2.0 specs are locked, v3.0 is already in planning. Fast iteration, solid execution."
+            },
+
+            responses: [
+                "Interesting question! Let me search my knowledge base...",
+                "Processing your query through the terminal...",
+                "Scanning BSC blockchain for relevant information...",
+                "Compiling response from Satoshi's archives...",
+                "Accessing decentralized knowledge network...",
+                "Terminal is thinking... 🤔",
+                "Querying the BSC oracle...",
+                "Loading response from the vault..."
+            ]
+        };
+
+        // Terminal functionality
+        class Terminal {
+            constructor() {
+                this.output = document.getElementById('terminalOutput');
+                this.input = document.getElementById('terminalInput');
+                this.history = this.loadHistory();
+                this.historyIndex = this.history.length;
+                this.isProcessing = false;
+                
+                this.initEventListeners();
+                this.focusInput();
+            }
+
+            initEventListeners() {
+                // Enter key to submit
+                this.input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && !this.isProcessing) {
+                        e.preventDefault();
+                        this.processInput();
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        this.navigateHistory(-1);
+                    } else if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        this.navigateHistory(1);
+                    } else if (e.key === 'Escape') {
+                        this.input.value = '';
+                    }
+                });
+
+                // Alternative: also listen for keyup Enter as backup
+                this.input.addEventListener('keyup', (e) => {
+                    if (e.key === 'Enter' && !this.isProcessing) {
+                        const query = this.input.value.trim();
+                        if (query) {
+                            this.processInput();
+                        }
+                    }
+                });
+
+                // Ctrl+K to focus
+                document.addEventListener('keydown', (e) => {
+                    if (e.ctrlKey && e.key === 'k') {
+                        e.preventDefault();
+                        this.focusInput();
+                    }
+                });
+
+                // Clear history button
+                document.getElementById('clearHistory').addEventListener('click', () => {
+                    this.clearHistory();
+                });
+
+                // Auto focus on click
+                this.output.addEventListener('click', () => {
+                    this.focusInput();
+                });
+            }
+
+            focusInput() {
+                this.input.focus();
+            }
+
+            async processInput() {
+                const query = this.input.value.trim();
+                if (!query || this.isProcessing) return;
+
+                this.isProcessing = true;
+                this.addToHistory(query);
+                this.addMessage(query, 'input');
+                this.input.value = '';
+
+                // Simulate processing delay
+                const delay = Math.random() * (CONFIG.MAX_DELAY - CONFIG.MIN_DELAY) + CONFIG.MIN_DELAY;
+                await this.sleep(delay);
+
+                const response = this.generateResponse(query);
+                
+                if (response === 'CLEAR_SCREEN') {
+                    this.clearScreen();
+                } else {
+                    await this.typeMessage(response, 'output');
+                }
+
+                this.isProcessing = false;
+                this.focusInput();
+                this.scrollToBottom();
+                
+                // Log event
+                window.logEvent('terminal_command', { command: query });
+            }
+
+            generateResponse(query) {
+                const lowerQuery = query.toLowerCase().trim();
+                
+                // Check for exact command matches
+                if (KNOWLEDGE_BASE.commands[lowerQuery]) {
+                    return KNOWLEDGE_BASE.commands[lowerQuery];
+                }
+
+                // Check for topic matches
+                for (const [topic, response] of Object.entries(KNOWLEDGE_BASE.topics)) {
+                    if (lowerQuery.includes(topic)) {
+                        return response;
+                    }
+                }
+
+                // Fuzzy matching for general queries
+                const keywords = ['token', 'buy', 'sell', 'price', 'chart', 'contract', 'bsc', 'binance', 
+                                'terminal', 'satoshi', 'sats', 'meme', 'moon', 'rug', 'safe', 'team',
+                                'roadmap', 'launch', 'trading', 'tax', 'fee', 'liquidity'];
+                
+                const foundKeywords = keywords.filter(keyword => lowerQuery.includes(keyword));
+                
+                if (foundKeywords.length > 0) {
+                    // Return a contextual response based on found keywords
+                    if (foundKeywords.includes('buy') || foundKeywords.includes('purchase')) {
+                        return KNOWLEDGE_BASE.commands['/howtobuy'];
+                    } else if (foundKeywords.includes('price') || foundKeywords.includes('chart')) {
+                        return KNOWLEDGE_BASE.topics.price;
+                    } else if (foundKeywords.includes('contract')) {
+                        return KNOWLEDGE_BASE.topics.contract;
+                    } else if (foundKeywords.includes('safe') || foundKeywords.includes('rug')) {
+                        return KNOWLEDGE_BASE.topics.security;
+                    } else if (foundKeywords.includes('roadmap') || foundKeywords.includes('future')) {
+                        return KNOWLEDGE_BASE.commands['/roadmap'];
+                    } else {
+                        return KNOWLEDGE_BASE.commands['/about'];
+                    }
+                }
+
+                // Default response for unrecognized queries
+                return `I don't have specific information about "${query}" in my knowledge base yet. 
+
+Try these commands:
+• /help - See all available commands  
+• /about - Learn about $SATS
+• /howtobuy - Get buying instructions
+• /faq - View frequently asked questions
+
+Or ask about: price, contract, team, roadmap, security, trading, BSC`;
+            }
+
+            addMessage(content, type) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'terminal-message';
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = `message-${type}`;
+                
+                if (type === 'input') {
+                    contentDiv.innerHTML = `<span class="terminal-prompt">satoshi@bsc:$</span> ${content}`;
+                } else {
+                    contentDiv.textContent = content;
+                    
+                    // Add copy button for output messages
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'copy-btn';
+                    copyBtn.textContent = 'Copy';
+                    copyBtn.onclick = () => this.copyToClipboard(content);
+                    contentDiv.appendChild(copyBtn);
+                }
+                
+                messageDiv.appendChild(contentDiv);
+                this.output.appendChild(messageDiv);
+            }
+
+            async typeMessage(content, type) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'terminal-message';
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = `message-${type}`;
+                contentDiv.style.position = 'relative';
+                
+                // Add copy button
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-btn';
+                copyBtn.textContent = 'Copy';
+                copyBtn.onclick = () => this.copyToClipboard(content);
+                contentDiv.appendChild(copyBtn);
+                
+                messageDiv.appendChild(contentDiv);
+                this.output.appendChild(messageDiv);
+
+                // Typing effect
+                for (let i = 0; i < content.length; i++) {
+                    contentDiv.insertBefore(document.createTextNode(content[i]), copyBtn);
+                    await this.sleep(CONFIG.TYPING_SPEED);
+                    this.scrollToBottom();
+                }
+            }
+
+            copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    // Visual feedback could be added here
+                    window.logEvent('text_copied', { length: text.length });
+                }).catch(() => {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                });
+            }
+
+            clearScreen() {
+                this.output.innerHTML = '<div class="terminal-message"><div class="message-output">Terminal cleared. Type /help to see available commands.</div></div>';
+            }
+
+            addToHistory(command) {
+                this.history.push(command);
+                if (this.history.length > CONFIG.MAX_HISTORY) {
+                    this.history.shift();
+                }
+                this.historyIndex = this.history.length;
+                this.saveHistory();
+            }
+
+            navigateHistory(direction) {
+                if (direction === -1 && this.historyIndex > 0) {
+                    this.historyIndex--;
+                    this.input.value = this.history[this.historyIndex];
+                } else if (direction === 1 && this.historyIndex < this.history.length - 1) {
+                    this.historyIndex++;
+                    this.input.value = this.history[this.historyIndex];
+                } else if (direction === 1 && this.historyIndex === this.history.length - 1) {
+                    this.historyIndex = this.history.length;
+                    this.input.value = '';
+                }
+            }
+
+            clearHistory() {
+                this.history = [];
+                this.historyIndex = 0;
+                this.saveHistory();
+                window.logEvent('history_cleared');
+            }
+
+            loadHistory() {
+                try {
+                    const saved = localStorage.getItem(CONFIG.STORAGE_KEY);
+                    return saved ? JSON.parse(saved) : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            saveHistory() {
+                try {
+                    localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(this.history));
+                } catch {
+                    // Storage might be disabled
+                }
+            }
+
+            scrollToBottom() {
+                this.output.scrollTop = this.output.scrollHeight;
+            }
+
+            sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        }
+
+        // Utility functions
+        const Utils = {
+            // Smooth scroll to element
+            scrollToElement(id) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            },
+
+            // Animate text typing effect
+            typeText(element, text, speed = 100) {
+                return new Promise(resolve => {
+                    let i = 0;
+                    const interval = setInterval(() => {
+                        element.textContent += text[i];
+                        i++;
+                        if (i >= text.length) {
+                            clearInterval(interval);
+                            resolve();
+                        }
+                    }, speed);
+                });
+            }
+        };
+
+        // Contract management
+        function setContractInfo(address) {
+            // Update contract display
+            const contractInfo = document.getElementById('contractInfo');
+            if (contractInfo) {
+                contractInfo.innerHTML = `Contract: <a href="https://bscscan.com/token/${address}" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">${address.substring(0, 8)}...${address.substring(address.length - 6)}</a>`;
+            }
+
+            // Update buy button if needed
+            const buyBtn = document.getElementById('buyBtn');
+            if (buyBtn) {
+                const currentHref = buyBtn.href;
+                if (!currentHref.includes(address)) {
+                    buyBtn.href = `${currentHref}?token=${address}`;
+                }
+            }
+
+            // Update tokenomics section contract info
+            const tokenElements = document.querySelectorAll('[data-field]');
+            tokenElements.forEach(el => {
+                if (el.dataset.field === 'contract') {
+                    el.textContent = `${address.substring(0, 8)}...${address.substring(address.length - 6)}`;
+                }
+            });
+
+            window.logEvent('contract_updated', { address });
+        }
+
+        // Analytics stub (ready for real implementation)
+        window.logEvent = function(eventName, data = {}) {
+            // Currently just logs to console
+            // TODO: Wire to real analytics service
+            console.log('Analytics Event:', eventName, data);
+        };
+
+        // DOM ready initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize terminal
+            window.terminal = new Terminal();
+
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Hero title typing effect
+            const heroTitle = document.getElementById('heroTitle');
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            
+            // Start typing after a short delay
+            setTimeout(() => {
+                Utils.typeText(heroTitle, originalText, 150);
+            }, 500);
+
+            // Terminal button click
+            document.getElementById('terminalBtn').addEventListener('click', () => {
+                Utils.scrollToElement('terminal');
+                setTimeout(() => window.terminal.focusInput(), 1000);
+            });
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.parentElement;
+                    const wasActive = item.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!wasActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Social link tracking
+            document.querySelectorAll('a[href^="https://x.com"], a[href^="https://t.me"], a[href^="https://four.meme"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const url = e.target.href;
+                    let platform = 'unknown';
+                    if (url.includes('x.com')) platform = 'twitter';
+                    else if (url.includes('t.me')) platform = 'telegram';
+                    else if (url.includes('four.meme')) platform = 'dex';
+                    
+                    window.logEvent('social_click', { platform, url });
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe feature cards
+            document.querySelectorAll('.feature-card, .roadmap-item, .faq-item').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Log page load
+            window.logEvent('page_loaded', {
+                referrer: document.referrer,
+                timestamp: Date.now()
+            });
+
+            console.log('🚀 Satoshi Terminal initialized successfully!');
+            console.log('💡 Try the terminal commands: /help, /about, /token, /roadmap');
+            console.log('🔧 Terminal instance available at window.terminal for debugging');
+        });
+
+        // Expose utility functions globally
+        window.SatoshiTerminal = {
+            setContractInfo,
+            logEvent: window.logEvent,
+            version: '1.0.0'
+        };
+    </script>
+</body>
+</html>
     </header>
 
     <!-- Hero Section -->
