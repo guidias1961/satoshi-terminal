@@ -45,7 +45,7 @@ app.post("/api/ai", async (req, res) => {
     ];
 
     const rsp = await client.responses.create({
-      model: "gpt-5-mini",
+      model: "gpt-3.5-turbo-16k",
       input
     });
 
