@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Satoshi Terminal | $SATS on PulseChain - The Terminal is Open</title>
-  <meta name="description" content="$SATS on PulseChain — Interactive terminal for crypto natives. Trade, explore, and deploy your destiny on PulseChain via Pump.Tires.">
+  <title>Satoshi Terminal | $SATS on Base — The Terminal is Open</title>
+  <meta name="description" content="$SATS on Base — Interactive terminal for crypto natives. Trade, explore, and deploy your destiny on Base via Ape.Store.">
   <link rel="icon" href="logo.png" />
   <meta name="canonical" href="https://satoshi-terminal.sbs">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Satoshi Terminal | $SATS on PulseChain">
-  <meta property="og:description" content="$SATS on PulseChain — Interactive terminal for crypto natives. The terminal is open.">
+  <meta property="og:title" content="Satoshi Terminal | $SATS on Base">
+  <meta property="og:description" content="$SATS on Base — Interactive terminal for crypto natives. The terminal is open.">
   <meta property="og:image" content="logo.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://satoshi-terminal.sbs">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Satoshi Terminal | $SATS on PulseChain">
-  <meta name="twitter:description" content="$SATS on PulseChain — Interactive terminal for crypto natives. The terminal is open.">
+  <meta name="twitter:title" content="Satoshi Terminal | $SATS on Base">
+  <meta name="twitter:description" content="$SATS on Base — Interactive terminal for crypto natives. The terminal is open.">
   <meta name="twitter:image" content="logo.png">
 
   <!-- JSON-LD -->
@@ -27,7 +27,7 @@
     "@context":"https://schema.org",
     "@type":"Organization",
     "name":"Satoshi Terminal",
-    "description":"$SATS token on PulseChain",
+    "description":"$SATS token on Base",
     "url":"https://satoshi-terminal.sbs",
     "logo":"logo.png",
     "sameAs":[
@@ -41,16 +41,16 @@
     /* Reset & Base */
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
-      /* PulseChain vibes */
+      /* Basechain vibes */
       --bg-primary:#0b0f14;
       --bg-secondary:#0f1320;
       --bg-tertiary:#0c111c;
       --text-primary:#eaf2ff;
       --text-secondary:#bcd0ff;
       --text-muted:#7f91b2;
-      --accent:#ff2bd1; /* magenta pulse */
-      --accent-dark:#d020ab;
-      --accent-2:#00e5ff; /* cyan pulse */
+      --accent:#0052ff;      /* Base blue */
+      --accent-dark:#003fcc; /* deeper blue */
+      --accent-2:#5aa7ff;    /* light blue */
       --border:#1b2233;
       --shadow:rgba(0,0,0,.55);
       --glass-bg:rgba(12,17,28,.75);
@@ -61,7 +61,7 @@
     }
     body{
       font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
-      background:radial-gradient(1200px 600px at 15% -10%, rgba(255,43,209,.08), transparent 60%), radial-gradient(800px 500px at 85% 10%, rgba(0,229,255,.08), transparent 60%), var(--bg-primary);
+      background:radial-gradient(1200px 600px at 15% -10%, rgba(0,82,255,.10), transparent 60%), radial-gradient(800px 500px at 85% 10%, rgba(90,167,255,.10), transparent 60%), var(--bg-primary);
       color:var(--text-primary);line-height:1.6;overflow-x:hidden
     }
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
@@ -83,12 +83,12 @@
     .btn-secondary{background:linear-gradient(180deg, rgba(20,26,40,.9), rgba(12,17,28,.9));color:var(--text-primary);border:1px solid var(--border)}
     .btn-secondary:hover{background:linear-gradient(180deg, rgba(28,36,56,.95), rgba(16,22,34,.95));border-color:var(--accent);transform:translateY(-1px)}
     .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a0a}
-    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 6px 28px rgba(255,43,209,.25), 0 4px 18px rgba(0,229,255,.18)}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 6px 28px rgba(0,82,255,.25), 0 4px 18px rgba(90,167,255,.18)}
     .btn:active{transform:translateY(0)}
 
     /* Hero */
-    .hero{padding:140px 0 80px;text-align:center;background:radial-gradient(ellipse at center, rgba(255,43,209,.12) 0%, transparent 70%)}
-    .hero-title{font-size:clamp(2.5rem,8vw,5rem);font-weight:900;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,var(--accent) 45%,var(--accent-2) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 40px rgba(0,229,255,.22)}
+    .hero{padding:140px 0 80px;text-align:center;background:radial-gradient(ellipse at center, rgba(0,82,255,.12) 0%, transparent 70%)}
+    .hero-title{font-size:clamp(2.5rem,8vw,5rem);font-weight:900;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,var(--accent) 45%,var(--accent-2) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 40px rgba(90,167,255,.22)}
     .hero-subtitle{font-size:clamp(1.1rem,3vw,1.4rem);color:var(--text-secondary);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto}
     .hero-badges{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
     .badge{background:var(--glass-bg);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:8px 16px;border-radius:999px;font-size:.85rem;color:var(--text-secondary)}
@@ -210,7 +210,7 @@
           <a href="https://t.me/satoshiterminal" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
             <span>Telegram</span>
           </a>
-          <a href="https://pump.tires/token/0x4FA8e4661c38C10719F680a9737E6b77060c3c6f" class="btn btn-primary" id="buyBtn" target="_blank" rel="noopener noreferrer">
+          <a href="https://ape.store/base/CONTRACT_ADDRESS" class="btn btn-primary" id="buyBtn" target="_blank" rel="noopener noreferrer">
             <span>Buy $SATS</span>
           </a>
         </nav>
@@ -222,9 +222,9 @@
   <section class="hero">
     <div class="container">
       <h1 class="hero-title" id="heroTitle">Satoshi is Online.</h1>
-      <p class="hero-subtitle">$SATS on PulseChain via Pump.Tires. The terminal is open. Type and deploy your destiny.</p>
+      <p class="hero-subtitle">$SATS on Base via Ape.Store. The terminal is open. Type and deploy your destiny.</p>
       <div class="hero-badges">
-        <div class="badge">Chain: <span class="highlight">PulseChain</span></div>
+        <div class="badge">Chain: <span class="highlight">Base</span></div>
         <div class="badge">Ticker: <span class="highlight">$SATS</span></div>
         <div class="badge">Status: <span class="highlight">Live</span></div>
       </div>
@@ -240,13 +240,13 @@
           <div class="terminal-dot dot-red"></div>
           <div class="terminal-dot dot-yellow"></div>
           <div class="terminal-dot dot-green"></div>
-          <div class="terminal-title">satoshi@pulse: Terminal v1.1</div>
+          <div class="terminal-title">satoshi@base: Terminal v1.1</div>
         </div>
         <div class="terminal-body">
           <div class="terminal-output" id="terminalOutput">
             <div class="terminal-message">
               <div class="message-output">Welcome to Satoshi Terminal v1.1
-Connected to PulseChain Network
+Connected to Base Network
 Type '/help' to see available commands or start typing to explore...
 
 Ready for input.</div>
@@ -254,8 +254,8 @@ Ready for input.</div>
           </div>
           <div class="terminal-input-container">
             <div class="terminal-input-line">
-              <span class="terminal-prompt">satoshi@pulse:$</span>
-              <input type="text" class="terminal-input" id="terminalInput" placeholder="Ask anything about $SATS, PulseChain, DeFi, memes, marketing, code..." autocomplete="off" spellcheck="false">
+              <span class="terminal-prompt">satoshi@base:$</span>
+              <input type="text" class="terminal-input" id="terminalInput" placeholder="Ask anything about $SATS, Base, DeFi, memes, marketing, code..." autocomplete="off" spellcheck="false">
               <div class="terminal-cursor"></div>
             </div>
           </div>
@@ -268,15 +268,15 @@ Ready for input.</div>
     </div>
   </section>
 
-  <!-- Why PulseChain -->
+  <!-- Why Base -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">Why PulseChain?</h2>
+      <h2 class="section-title">Why Base</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3>Fast Finality</h3><p>Low-latency confirmations optimized for rapid iteration and on-chain experimentation.</p></div>
-        <div class="feature-card"><h3>Low Fees</h3><p>PLS gas is cheap, so you can ship, test, and meme without friction.</p></div>
-        <div class="feature-card"><h3>Growing Liquidity</h3><p>DEX ecosystem maturing fast. Execution at fair prices with minimal slippage when liquidity is deep.</p></div>
-        <div class="feature-card"><h3>Meme Culture</h3><p>Pulse natives know how to build momentum. $SATS leans into that energy.</p></div>
+        <div class="feature-card"><h3>Low Fees</h3><p>ETH on Base keeps costs down so you can ship, test, and meme fast.</p></div>
+        <div class="feature-card"><h3>Fast Finality</h3><p>Low latency for rapid iteration and on-chain experimentation.</p></div>
+        <div class="feature-card"><h3>Deep Liquidity</h3><p>Maturing DEX ecosystem on Base with efficient execution.</p></div>
+        <div class="feature-card"><h3>Meme Culture</h3><p>Base natives build momentum. $SATS rides that wave.</p></div>
       </div>
     </div>
   </section>
@@ -303,7 +303,7 @@ Ready for input.</div>
           <div class="roadmap-number">1</div>
           <div class="roadmap-content">
             <h3>Launch Phase</h3>
-            <p>Deployment on PulseChain, liquidity, initial community build, and Terminal v1.0 with core functionality.</p>
+            <p>Deployment on Base, liquidity, initial community build, and Terminal v1.0 with core functionality.</p>
           </div>
         </div>
         <div class="roadmap-item">
@@ -331,11 +331,11 @@ Ready for input.</div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question">What is Satoshi Terminal? <span class="faq-toggle">▼</span></button>
-          <div class="faq-answer">Satoshi Terminal is a crypto-native interface on PulseChain, powered by the $SATS token. Terminal-first UX, community, and on-chain tools.</div>
+          <div class="faq-answer">Satoshi Terminal is a crypto-native interface on Base, powered by the $SATS token. Terminal-first UX, community, and on-chain tools.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">How do I buy $SATS? <span class="faq-toggle">▼</span></button>
-          <div class="faq-answer">Use Pump.Tires on PulseChain. Fund your wallet with PLS for gas, set appropriate slippage, and swap to $SATS once the contract is live.</div>
+          <div class="faq-answer">Use Ape.Store on Base. Fund your wallet with ETH on Base for gas, set slippage as needed, and swap once the contract is live.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">Is the contract safe? <span class="faq-toggle">▼</span></button>
@@ -355,7 +355,7 @@ Ready for input.</div>
       <div class="proof-badges">
         <div class="proof-badge"><span class="number">24/7</span><span class="label">Terminal Online</span></div>
         <div class="proof-badge"><span class="number">0%</span><span class="label">Transaction Tax</span></div>
-        <div class="proof-badge"><span class="number">Pulse</span><span class="label">Native Chain</span></div>
+        <div class="proof-badge"><span class="number">Base</span><span class="label">Native Chain</span></div>
         <div class="proof-badge"><span class="number">∞</span><span class="label">Possibilities</span></div>
       </div>
     </div>
@@ -369,7 +369,7 @@ Ready for input.</div>
           <a href="#terminal">Terminal</a>
           <a href="https://x.com/Sats_Terminal" target="_blank" rel="noopener noreferrer">Twitter</a>
           <a href="https://t.me/satoshiterminal" target="_blank" rel="noopener noreferrer">Telegram</a>
-          <a href="" id="footerBuy" target="_blank" rel="noopener noreferrer">Buy Now</a>
+          <a href="https://ape.store/base/CONTRACT_ADDRESS" id="footerBuy" target="_blank" rel="noopener noreferrer">Buy Now</a>
         </div>
         <div class="footer-links">
           <span id="contractInfo">Contract: TBD</span>
@@ -400,7 +400,7 @@ Ready for input.</div>
     // ---------------------------
     // Utility: tokenizer + cosine
     // ---------------------------
-    const Stop = new Set(("a an and are as at be but by for from has have if in into is it its of on or that the to was were will with you your we our us they them this those these i me my what why how when where who which do does did can should could would fee gas pls pulse sats token chain meme buy sell price contract team roadmap security utility trade").split(/\s+/));
+    const Stop = new Set(("a an and are as at be but by for from has have if in into is it its of on or that the to was were will with you your we our us they them this those these i me my what why how when where who which do does did can should could would fee gas eth base sats token chain meme buy sell price contract team roadmap security utility trade").split(/\s+/));
 
     function tokenize(text){
       return text
@@ -428,15 +428,15 @@ Ready for input.</div>
     }
 
     // ---------------------------
-    // Knowledge base (PulseChain)
+    // Knowledge base (Base + Ape.Store)
     // ---------------------------
     const KB = [
       // Core token / basics
-      {q:"what is sats", a:"$SATS is the native token of Satoshi Terminal on PulseChain. It blends meme energy with real utility through a terminal-first UX."},
-      {q:"what is satoshi terminal", a:"Satoshi Terminal is a crypto-native interface on PulseChain with a terminal UX. Tools, knowledge, and community with low friction."},
+      {q:"what is sats", a:"$SATS is the native token of Satoshi Terminal on Base. It blends meme energy with real utility through a terminal-first UX."},
+      {q:"what is satoshi terminal", a:"Satoshi Terminal is a crypto-native interface on Base with a terminal UX. Tools, knowledge, and community with low friction."},
       {q:"tokenomics", a:"Tokenomics: 0% buy and sell tax. Total supply and initial LP TBD at launch. Ownership to be renounced. Verify address only via official channels."},
-      {q:"why pulse", a:"PulseChain has low fees, solid throughput, and a growing meme culture. Ideal for fast iteration and on-chain experiments."},
-      {q:"how to buy", a:"How to buy $SATS: get PLS for gas, open Pump.Tires on PulseChain, set slippage as needed, swap, and add the contract to your wallet once announced."},
+      {q:"why base", a:"Base offers low fees and fast finality with a strong meme culture. Ideal for rapid iteration and shipping."},
+      {q:"how to buy", a:"How to buy $SATS: get ETH on Base for gas, open Ape.Store, set slippage as needed, swap, and add the contract to your wallet once announced."},
       {q:"contract", a:"The contract address will be published on our Twitter and Telegram right after launch. Never trust random DMs or screenshots."},
       {q:"liquidity", a:"Liquidity will be added on launch and managed with transparency. Verify announcements on official channels."},
       {q:"audit", a:"An audit is planned around launch. Regardless, always DYOR and confirm the official address."},
@@ -445,13 +445,13 @@ Ready for input.</div>
       {q:"utility", a:"Utility: terminal UX, trading helpers, knowledge commands, later PnL tools, sentiment signals and quests."},
 
       // Trading & fees
-      {q:"gas fee", a:"PulseChain gas (PLS) is typically very low. Keep a small PLS buffer for fees."},
-      {q:"slippage", a:"Start with a modest slippage on Pump.Tires. If it fails, adjust based on volatility and liquidity."},
-      {q:"price chart", a:"Use Pump.Tires or your preferred DEX/aggregator to track the chart. Terminal v2.0 will integrate live feeds."},
+      {q:"gas fee", a:"ETH on Base is typically very cheap. Keep a small buffer for gas."},
+      {q:"slippage", a:"Start with modest slippage on Ape.Store. If it fails, adjust based on volatility and liquidity."},
+      {q:"price chart", a:"Use Ape.Store or your preferred DEX/aggregator to track the chart. Terminal v2.0 will integrate live feeds."},
 
       // Security / safety
       {q:"is this a rug", a:"We plan to renounce and lock LP. Still, only invest what you can afford to lose, and verify the contract via official links."},
-      {q:"scam", a:"Beware of impersonators and fake contracts. Always cross-check announcements on x.com/Sats_Terminal and t.me/satoshiterminal."},
+      {q:"scam", a:"Beware of impersonators and fake contracts. Cross-check on x.com/Sats_Terminal and t.me/satoshiterminal."},
 
       // Community / socials
       {q:"twitter", a:"Twitter: https://x.com/Sats_Terminal"},
@@ -459,17 +459,17 @@ Ready for input.</div>
       {q:"community", a:"Join Telegram and Twitter to get verified links, contests, quests, and code drops."},
 
       // Terminal help
-      {q:"help", a:"Commands: /help, /about, /token, /howtobuy, /roadmap, /faq, /pulse, /hype, /meme, /tweet, /explain, /clean. Ask free-form too."},
+      {q:"help", a:"Commands: /help, /about, /token, /howtobuy, /roadmap, /faq, /base, /hype, /meme, /tweet, /explain, /clean. Ask free-form too."},
       {q:"about", a:"$SATS is for builders and degens who think in terminals. We ship fast and avoid fluff."},
 
       // Marketing / memes / tweets
-      {q:"give meme ideas", a:"Meme ideas: gas fee thermometer (PLS chill), 'satoshi@pulse:$ ./moon.sh', terminal vs GUI split-screen."},
-      {q:"viral tweet", a:"Draft: $SATS on PulseChain hits different. Low fees, terminal-first, fast shipping. If you still overpay gas, that’s a skill issue. Terminal’s open."},
+      {q:"give meme ideas", a:"Meme ideas: terminal vs GUI, 'satoshi@base:$ ./moon.sh', gas savings scoreboard."},
+      {q:"viral tweet", a:"Draft: $SATS on Base hits different. Low fees, terminal-first, fast shipping. If you still overpay gas, skill issue. Terminal is open."},
 
       // Tutorials / dev flavored
-      {q:"create wallet", a:"Install MetaMask, add PulseChain, fund with PLS, keep a buffer for gas."},
-      {q:"set network metamask", a:"PulseChain mainnet — Chain ID 369, currency symbol PLS, explorer scan.pulsechain.com."},
-      {q:"what is slippage tolerance", a:"Slippage is your tolerated price movement during swaps. Too low may revert; too high can worsen fills."},
+      {q:"create wallet", a:"Install MetaMask or Coinbase Wallet, add Base, fund with ETH on Base, keep a buffer for gas."},
+      {q:"set network metamask", a:"Base mainnet — Chain ID 8453, currency symbol ETH, explorer basescan.org."},
+      {q:"what is slippage tolerance", a:"Slippage is tolerated price movement during swaps. Too low may revert, too high worsens fills."},
       {q:"what is liquidity pool", a:"AMM pools enable swaps via reserves. Larger pools reduce price impact."},
 
       // Hype detector concept
@@ -480,8 +480,8 @@ Ready for input.</div>
       {q:"impermanent loss", a:"Occurs when providing LP to volatile pairs and prices diverge. Fees and incentives can offset it."},
 
       // Generic Q&A coverage
-      {q:"who is satoshi", a:"Pseudonymous creator of Bitcoin. Here, Satoshi is your terminal persona, bullish on $SATS on PulseChain."},
-      {q:"compare eth vs pulse", a:"ETH has massive infra and security. Pulse focuses on low fees and speed. $SATS chooses Pulse for throughput and culture."},
+      {q:"who is satoshi", a:"Pseudonymous creator of Bitcoin. Here, Satoshi is your terminal persona, bullish on $SATS on Base."},
+      {q:"compare eth vs base", a:"ETH L1 has massive security and infra. Base brings low fees and speed while inheriting Ethereum security. $SATS chooses Base for throughput and culture."},
       {q:"how do i avoid rugs", a:"Verify devs, read the contract, check LP locks and ownership, avoid FOMO."},
       {q:"when listing", a:"DEX trading goes live first. Centralized listings depend on demand and due diligence."},
       {q:"airdrop", a:"No airdrop promised. If anything changes, it will be announced on official channels."},
@@ -524,7 +524,7 @@ Ready for input.</div>
       return [
         "Processing in the terminal...",
         "Compiling a response from the vault...",
-        "Scanning Pulse playbooks...",
+        "Scanning Base playbooks...",
         "Pulling guidance from Satoshi's notes..."
       ];
     }
@@ -533,13 +533,13 @@ Ready for input.</div>
       const q = query.toLowerCase();
       const bullets = [];
       if(q.includes("buy")||q.includes("purchase")||q.includes("get")){
-        bullets.push("Get PLS, open Pump.Tires on PulseChain, set slippage, and swap.");
-        bullets.push("Keep a small PLS buffer for gas.");
+        bullets.push("Get ETH on Base, open Ape.Store, set slippage, and swap.");
+        bullets.push("Keep a small ETH buffer for gas.");
         bullets.push("Verify the contract only from official links.");
       }
       if(q.includes("marketing")||q.includes("tweet")||q.includes("grow")||q.includes("viral")){
-        bullets.push("Lean into terminal-first identity and low-fee narratives.");
-        bullets.push("Contrast ETH gas vs Pulse speed with quick clips.");
+        bullets.push("Lean into terminal-first identity and Base fee savings.");
+        bullets.push("Contrast L1 gas vs Base speed with quick clips.");
         bullets.push("Show keyboard-first UX moments of the terminal.");
       }
       if(q.includes("security")||q.includes("rug")||q.includes("safe")||q.includes("audit")){
@@ -549,8 +549,8 @@ Ready for input.</div>
       }
       if(q.includes("meme")){
         bullets.push("Terminal vs GUI split panel gag.");
-        bullets.push("satoshi@pulse:$ ./moon.sh with animated text.");
-        bullets.push("Gas fee thermometer: Pulse chill, others overheated.");
+        bullets.push("satoshi@base:$ ./moon.sh with animated text.");
+        bullets.push("Gas savings scoreboard on Base.");
       }
       if(q.includes("roadmap")||q.includes("plan")||q.includes("phase")){
         bullets.push("Phase 1: launch and core terminal.");
@@ -564,15 +564,15 @@ Ready for input.</div>
         "",
         bullets.length
           ? bullets.map(b=>`• ${b}`).join("\n")
-          : "Ask me anything about $SATS, Pulse, DeFi, memes, or growth. I can draft tweets, memes, explain concepts, or outline steps."
+          : "Ask me anything about $SATS, Base, DeFi, memes, or growth. I can draft tweets, memes, explain concepts, or outline steps."
       ].join("\n");
       return out;
     }
 
     // Draft helpers
-    function makeTweet(topic="SATS on PulseChain"){
+    function makeTweet(topic="SATS on Base"){
       return [
-        `Found ${topic} and it just feels right on PulseChain.`,
+        `Found ${topic} and it just feels right on Base.`,
         `Low fees. Fast blocks. Terminal-first UX.`,
         `Ship faster. Pay less. Think in code.`,
         `The terminal is open. $SATS`
@@ -582,8 +582,8 @@ Ready for input.</div>
     function makeMemeIdeas(topic="SATS"){
       return [
         `1) Terminal vs GUI: "I press keys, you press fees."`,
-        `2) Gas Fee Thermometer: Pulse chill vs overheated chains.`,
-        `3) satoshi@pulse:$ ./moon.sh --execute`,
+        `2) Gas Savings Scoreboard: Base chill vs overheated L1s.`,
+        `3) satoshi@base:$ ./moon.sh --execute`,
         `4) Brain expansion: trader -> terminal -> becoming ${topic}.`,
         `5) "Skill issue" if you're still overpaying gas.`
       ].join("\n");
@@ -605,26 +605,26 @@ Ready for input.</div>
 /howtobuy   Steps to buy $SATS
 /roadmap    Project phases
 /faq        Common questions
-/pulse      Why PulseChain
+/base       Why Base
 /hype       Tweet drafts bundle
 /meme [t]   Meme ideas for topic t
 /tweet [t]  Tweet draft for topic t
 /explain t  Short explanation for term t
 /clean      Clear the screen
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      "/about": `$SATS — terminal-first token on PulseChain for people who think in code. We ship fast and keep it practical.`,
+      "/about": `$SATS — terminal-first token on Base for people who think in code. We ship fast and keep it practical.`,
       "/token": `Token
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Name: Satoshi Terminal
 Ticker: $SATS
-Chain: PulseChain
+Chain: Base
 Contract: TBD (posted on official socials)
 Tax: 0% / 0%
 Ownership: Will be renounced
-DEX: Pump.Tires`,
+DEX: Ape.Store`,
       "/howtobuy": `How to Buy
-1) Get PLS for gas
-2) Open Pump.Tires on PulseChain
+1) Get ETH on Base for gas
+2) Open Ape.Store on Base
 3) Set reasonable slippage
 4) Swap and add the contract`,
       "/roadmap": `Roadmap
@@ -638,10 +638,10 @@ Q: Price feed?
 A: v2.0 will integrate live data
 Q: Support?
 A: Telegram: t.me/satoshiterminal`,
-      "/pulse": `Why Pulse: low fees, fast blocks, growing meme culture.`,
+      "/base": `Why Base: low fees, fast blocks, strong meme culture.`,
       "/hype": `Hype Drafts
-1) "$SATS on Pulse hits different. Low fees. Terminal-first. The future shipped."
-2) "If you still overpay gas, that’s a skill issue. Terminal is open on Pulse. $SATS"`,
+1) "$SATS on Base hits different. Low fees. Terminal-first. The future shipped."
+2) "If you still overpay gas, that’s a skill issue. Terminal is open on Base. $SATS"`,
       "/clean": "CLEAR_SCREEN"
     };
 
@@ -702,7 +702,7 @@ A: Telegram: t.me/satoshiterminal`,
           const [cmd, ...rest] = lower.split(/\s+/);
           const arg = rest.join(' ').trim();
           if(cmd === '/tweet'){
-            const t = arg || 'SATS on PulseChain';
+            const t = arg || 'SATS on Base';
             return makeTweet(t);
           }
           if(cmd === '/meme'){
@@ -748,7 +748,7 @@ A: Telegram: t.me/satoshiterminal`,
         const inner = document.createElement('div');
         inner.className = `message-${type}`;
         if(type==='input'){
-          inner.innerHTML = `<span class="terminal-prompt">satoshi@pulse:$</span> ${content}`;
+          inner.innerHTML = `<span class="terminal-prompt">satoshi@base:$</span> ${content}`;
         } else {
           inner.textContent = content;
           const copyBtn = document.createElement('button');
@@ -827,11 +827,11 @@ A: Telegram: t.me/satoshiterminal`,
     function setContractInfo(address){
       const el = document.getElementById('contractInfo');
       if(el){
-        el.innerHTML = `Contract: <a href="https://scan.pulsechain.com/token/${address}" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">${address.substring(0,8)}...${address.substring(address.length-6)}</a>`;
+        el.innerHTML = `Contract: <a href="https://basescan.org/token/${address}" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">${address.substring(0,8)}...${address.substring(address.length-6)}</a>`;
       }
       const buyBtn = document.getElementById('buyBtn');
       const footerBuy = document.getElementById('footerBuy');
-      const buyUrl = `https://pump.tires/token/${address}`;
+      const buyUrl = `https://ape.store/base/${address}`;
       if(buyBtn) buyBtn.href = buyUrl;
       if(footerBuy) footerBuy.href = buyUrl;
 
@@ -866,20 +866,20 @@ A: Telegram: t.me/satoshiterminal`,
         });
       });
 
-      document.querySelectorAll('a[href^="https://x.com"], a[href^="https://t.me"], a[href*="pump.tires"]').forEach(link=>{
+      document.querySelectorAll('a[href^="https://x.com"], a[href^="https://t.me"], a[href*="ape.store"]').forEach(link=>{
         link.addEventListener('click', ()=>{
           const url = link.href;
           let platform = 'unknown';
           if(url.includes('x.com')) platform='twitter';
           else if(url.includes('t.me')) platform='telegram';
-          else if(url.includes('pump.tires')) platform='dex';
+          else if(url.includes('ape.store')) platform='dex';
           window.logEvent('social_click',{platform,url});
         });
       });
 
-      window.SatoshiTerminal = { setContractInfo, logEvent:window.logEvent, version:'1.1.0-pulse' };
+      window.SatoshiTerminal = { setContractInfo, logEvent:window.logEvent, version:'1.1.0-base' };
 
-      console.log('🚀 Satoshi Terminal v1.1 on Pulse ready');
+      console.log('🚀 Satoshi Terminal v1.1 on Base ready');
       console.log('Try: /help, /tweet hype, /meme sats, explain slippage, how to buy, gas fees, security, tokenomics, roadmap, partnerships');
     });
   </script>
