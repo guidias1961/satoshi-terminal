@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Satoshi Terminal | $SATS on Bitcoin - The Terminal is Open</title>
-  <meta name="description" content="$SATS on Bitcoin via ODIN.FUN - Interactive terminal for crypto natives. Trade, explore, and ship fast on Bitcoin using a bonding-curve AMM experience.">
+  <title>Satoshi Terminal | $SATS on BNB Chain - The Terminal is Open</title>
+  <meta name="description" content="$SATS on BNB Chain via four.meme — terminal interativo para degens. Compre, explore e shippe rápido usando a experiência de bonding-curve da four.meme.">
   <link rel="icon" href="logo.png" />
   <meta name="canonical" href="https://satoshi-terminal.sbs">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Satoshi Terminal | $SATS on Bitcoin">
-  <meta property="og:description" content="$SATS on Bitcoin via ODIN.FUN. The terminal is open.">
+  <meta property="og:title" content="Satoshi Terminal | $SATS on BNB Chain">
+  <meta property="og:description" content="$SATS on BNB Chain via four.meme. The terminal is open.">
   <meta property="og:image" content="logo.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://satoshi-terminal.sbs">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Satoshi Terminal | $SATS on Bitcoin">
-  <meta name="twitter:description" content="$SATS on Bitcoin via ODIN.FUN. The terminal is open.">
+  <meta name="twitter:title" content="Satoshi Terminal | $SATS on BNB Chain">
+  <meta name="twitter:description" content="$SATS on BNB Chain via four.meme. The terminal is open.">
   <meta name="twitter:image" content="logo.png">
 
   <!-- JSON-LD -->
@@ -27,12 +27,12 @@
     "@context":"https://schema.org",
     "@type":"Organization",
     "name":"Satoshi Terminal",
-    "description":"$SATS token on Bitcoin via ODIN.FUN",
+    "description":"$SATS token on BNB Chain via four.meme",
     "url":"https://satoshi-terminal.sbs",
     "logo":"logo.png",
     "sameAs":[
       "https://x.com/Sats_Terminal",
-      "https://t.me/satoshiterminal"
+      "https://t.me/terminalsats"
     ]
   }
   </script>
@@ -40,16 +40,16 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
-      /* Bitcoin vibes */
+      /* BNB vibes */
       --bg-primary:#0b0b0b;
       --bg-secondary:#121212;
       --bg-tertiary:#0e0e0e;
       --text-primary:#f5f5f5;
       --text-secondary:#d6d6d6;
       --text-muted:#a3a3a3;
-      --accent:#f7931a;      /* BTC orange */
-      --accent-dark:#c46f00;
-      --accent-2:#ffb347;    /* light orange */
+      --accent:#F0B90B;      /* BNB yellow */
+      --accent-dark:#b98a07;
+      --accent-2:#F8D12F;    /* light yellow */
       --border:#1e1e1e;
       --shadow:rgba(0,0,0,.6);
       --glass-bg:rgba(20,20,20,.72);
@@ -61,8 +61,8 @@
     body{
       font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
       background:
-        radial-gradient(1200px 600px at 15% -10%, rgba(247,147,26,.10), transparent 60%),
-        radial-gradient(800px 500px at 85% 10%, rgba(255,179,71,.10), transparent 60%),
+        radial-gradient(1200px 600px at 15% -10%, rgba(240,185,11,.10), transparent 60%),
+        radial-gradient(800px 500px at 85% 10%, rgba(248,209,47,.10), transparent 60%),
         var(--bg-primary);
       color:var(--text-primary);line-height:1.6;overflow-x:hidden
     }
@@ -85,12 +85,12 @@
     .btn-secondary{background:linear-gradient(180deg, rgba(28,28,28,.9), rgba(16,16,16,.9));color:var(--text-primary);border:1px solid var(--border)}
     .btn-secondary:hover{background:linear-gradient(180deg, rgba(36,36,36,.95), rgba(20,20,20,.95));border-color:var(--accent);transform:translateY(-1px)}
     .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0a0a}
-    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 6px 28px rgba(247,147,26,.25), 0 4px 18px rgba(255,179,71,.18)}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 6px 28px rgba(240,185,11,.25), 0 4px 18px rgba(248,209,47,.18)}
     .btn:active{transform:translateY(0)}
 
     /* Hero */
-    .hero{padding:140px 0 80px;text-align:center;background:radial-gradient(ellipse at center, rgba(247,147,26,.12) 0%, transparent 70%)}
-    .hero-title{font-size:clamp(2.5rem,8vw,5rem);font-weight:900;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,var(--accent) 45%,var(--accent-2) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 40px rgba(247,147,26,.22)}
+    .hero{padding:140px 0 80px;text-align:center;background:radial-gradient(ellipse at center, rgba(240,185,11,.12) 0%, transparent 70%)}
+    .hero-title{font-size:clamp(2.5rem,8vw,5rem);font-weight:900;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,var(--accent) 45%,var(--accent-2) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 40px rgba(240,185,11,.22)}
     .hero-subtitle{font-size:clamp(1.1rem,3vw,1.4rem);color:var(--text-secondary);margin-bottom:40px;max-width:780px;margin-left:auto;margin-right:auto}
     .hero-badges{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
     .badge{background:var(--glass-bg);backdrop-filter:blur(10px);border:1px solid var(--glass-border);padding:8px 16px;border-radius:999px;font-size:.85rem;color:var(--text-secondary)}
@@ -208,7 +208,7 @@
         <nav class="header-buttons">
           <a href="https://x.com/Sats_Terminal" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><span>Twitter</span></a>
           <a href="https://t.me/terminalsats" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><span>Telegram</span></a>
-          <a href="https://odin.fun/token/2ukw" class="btn btn-primary" id="buyBtn" target="_blank" rel="noopener noreferrer"><span>Buy $SATS</span></a>
+          <a href="https://four.meme/launchpad" class="btn btn-primary" id="buyBtn" target="_blank" rel="noopener noreferrer"><span>Buy on four.meme</span></a>
         </nav>
       </div>
     </div>
@@ -218,9 +218,9 @@
   <section class="hero">
     <div class="container">
       <h1 class="hero-title" id="heroTitle">Satoshi is Online.</h1>
-      <p class="hero-subtitle">$SATS on Bitcoin via ODIN.FUN. The terminal is open. Type and deploy your destiny.</p>
+      <p class="hero-subtitle">$SATS on BNB Chain via four.meme. The terminal is open. Type and deploy your destiny.</p>
       <div class="hero-badges">
-        <div class="badge">Chain: <span class="highlight">Bitcoin</span></div>
+        <div class="badge">Chain: <span class="highlight">BNB Chain</span></div>
         <div class="badge">Ticker: <span class="highlight">$SATS</span></div>
         <div class="badge">Status: <span class="highlight">Live</span></div>
       </div>
@@ -236,13 +236,13 @@
           <div class="terminal-dot dot-red"></div>
           <div class="terminal-dot dot-yellow"></div>
           <div class="terminal-dot dot-green"></div>
-          <div class="terminal-title">satoshi@bitcoin: Terminal v1.1</div>
+          <div class="terminal-title">satoshi@bsc: Terminal v1.1</div>
         </div>
         <div class="terminal-body">
           <div class="terminal-output" id="terminalOutput">
             <div class="terminal-message">
               <div class="message-output">Welcome to Satoshi Terminal v1.1
-Connected to Bitcoin
+Connected to BNB Chain
 Type '/help' to see available commands or start typing to explore...
 
 Ready for input.</div>
@@ -250,8 +250,8 @@ Ready for input.</div>
           </div>
           <div class="terminal-input-container">
             <div class="terminal-input-line">
-              <span class="terminal-prompt">satoshi@bitcoin:$</span>
-              <input type="text" class="terminal-input" id="terminalInput" placeholder="Ask anything about $SATS, Bitcoin, ODIN.FUN, memes, marketing, code..." autocomplete="off" spellcheck="false">
+              <span class="terminal-prompt">satoshi@bsc:$</span>
+              <input type="text" class="terminal-input" id="terminalInput" placeholder="Ask anything about $SATS, BNB Chain, four.meme, memes, marketing, code..." autocomplete="off" spellcheck="false">
               <div class="terminal-cursor"></div>
             </div>
           </div>
@@ -264,15 +264,15 @@ Ready for input.</div>
     </div>
   </section>
 
-  <!-- Why Bitcoin -->
+  <!-- Why BNB Chain -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">Why Bitcoin</h2>
+      <h2 class="section-title">Why BNB Chain</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3>Signal</h3><p>Bitcoin carries unmatched brand, liquidity, and distribution across crypto.</p></div>
-        <div class="feature-card"><h3>Speed to Launch</h3><p>ODIN.FUN streamlines creation and trading using a bonding curve style AMM.</p></div>
-        <div class="feature-card"><h3>Real-Time UX</h3><p>Lightning-fast updates on ODIN.FUN with a clean, meme-forward flow.</p></div>
-        <div class="feature-card"><h3>Meme Gravity</h3><p>$SATS leans into Bitcoin lore with a terminal-first identity.</p></div>
+        <div class="feature-card"><h3>Distribution</h3><p>BNB Chain tem grande base de usuários, taxas baixas e alto throughput para memes com escala.</p></div>
+        <div class="feature-card"><h3>Speed to Launch</h3><p>four.meme simplifica criação e trading com bonding curve acessível e UX direta.</p></div>
+        <div class="feature-card"><h3>Real-Time UX</h3><p>Execução rápida, atualização fluida e fluxo meme-first para degen shipping.</p></div>
+        <div class="feature-card"><h3>Meme Gravity</h3><p>$SATS abraça lore cripto com uma identidade terminal-first na BSC.</p></div>
       </div>
     </div>
   </section>
@@ -299,21 +299,21 @@ Ready for input.</div>
           <div class="roadmap-number">1</div>
           <div class="roadmap-content">
             <h3>Launch Phase</h3>
-            <p>Deployment on Bitcoin via ODIN.FUN, liquidity, initial community push, and Terminal v1.0 with core functionality.</p>
+            <p>Deploy na BNB Chain via four.meme, provisionar liquidez inicial, push de comunidade e Terminal v1.0 com core.</p>
           </div>
         </div>
         <div class="roadmap-item">
           <div class="roadmap-number">2</div>
           <div class="roadmap-content">
             <h3>Terminal v2.0</h3>
-            <p>Live data integrations, quick PnL views, sentiment hooks, and UX refinements.</p>
+            <p>Integrações on-chain rápidas, PnL básico, hooks de sentimento e refinamento de UX.</p>
           </div>
         </div>
         <div class="roadmap-item">
           <div class="roadmap-number">3</div>
           <div class="roadmap-content">
             <h3>Hype Detector & Quests</h3>
-            <p>Social velocity signals, gamified quests, and rewards for active participants.</p>
+            <p>Velocidade social, quests gamificadas e recompensas para participantes ativos.</p>
           </div>
         </div>
       </div>
@@ -327,19 +327,19 @@ Ready for input.</div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question">What is Satoshi Terminal? <span class="faq-toggle">▼</span></button>
-          <div class="faq-answer">Satoshi Terminal is a crypto-native interface on Bitcoin, powered by the $SATS token and launched via ODIN.FUN. Terminal-first UX, community, and on-chain tools.</div>
+          <div class="faq-answer">Satoshi Terminal é uma interface cripto-native na BNB Chain, movida por $SATS e lançada via four.meme. Terminal-first UX, comunidade e ferramentas on-chain.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">How do I buy $SATS? <span class="faq-toggle">▼</span></button>
-          <div class="faq-answer">Use ODIN.FUN on Bitcoin. Open the official token page, set slippage if needed, and buy along the bonding curve. Always confirm the official link on our socials.</div>
+          <div class="faq-answer">Use a página oficial da four.meme. Conecte a carteira BSC, ajuste slippage se necessário e compre na curva. Sempre confirme o link oficial nas nossas redes.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">Is the launch safe? <span class="faq-toggle">▼</span></button>
-          <div class="faq-answer">Plan is public transparency, renounced ownership when setup is complete, and clear announcements. Always DYOR and verify the official page.</div>
+          <div class="faq-answer">Plano: transparência pública, ownership renounced após setup e anúncios claros. Faça DYOR e verifique o link oficial.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">What makes $SATS different? <span class="faq-toggle">▼</span></button>
-          <div class="faq-answer">$SATS blends meme culture with practical terminal utility, anchored in Bitcoin lore and ODIN.FUN speed.</div>
+          <div class="faq-answer">$SATS une cultura meme com utilidade prática de terminal, ancorado na BNB Chain e na velocidade da four.meme.</div>
         </div>
       </div>
     </div>
@@ -351,7 +351,7 @@ Ready for input.</div>
       <div class="proof-badges">
         <div class="proof-badge"><span class="number">24/7</span><span class="label">Terminal Online</span></div>
         <div class="proof-badge"><span class="number">0%</span><span class="label">Transaction Tax</span></div>
-        <div class="proof-badge"><span class="number">Bitcoin</span><span class="label">Native Chain</span></div>
+        <div class="proof-badge"><span class="number">BNB Chain</span><span class="label">Native Chain</span></div>
         <div class="proof-badge"><span class="number">∞</span><span class="label">Possibilities</span></div>
       </div>
     </div>
@@ -373,7 +373,7 @@ Ready for input.</div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 Satoshi Terminal. Built for crypto natives.</p>
-        <p class="risk-notice">Crypto is high risk. Only invest what you can afford to lose. Not financial advice.</p>
+        <p class="risk-notice">Crypto é alto risco. Invista somente o que pode perder. Não é conselho financeiro.</p>
       </div>
     </div>
   </footer>
@@ -396,7 +396,7 @@ Ready for input.</div>
     // ---------------------------
     // Utility: tokenizer + cosine
     // ---------------------------
-    const Stop = new Set(("a an and are as at be but by for from has have if in into is it its of on or that the to was were will with you your we our us they them this those these i me my what why how when where who which do does did can should could would fee gas btc bitcoin sats token chain meme buy sell price address team roadmap security utility trade odin fun").split(/\s+/));
+    const Stop = new Set(("a an and are as at be but by for from has have if in into is it its of on or that the to was were will with you your we our us they them this those these i me my what why how when where who which do does did can should could would fee gas bnb bsc chain token meme buy sell price address team roadmap security utility trade four meme").split(/\s+/));
 
     function tokenize(text){
       return text
@@ -424,16 +424,16 @@ Ready for input.</div>
     }
 
     // ---------------------------
-    // Knowledge base (Bitcoin + ODIN.FUN)
+    // Knowledge base (BNB + four.meme)
     // ---------------------------
     const KB = [
       // Core token / basics
-      {q:"what is sats", a:"$SATS is the native token of Satoshi Terminal on Bitcoin. It blends meme energy with practical terminal utility. Launched via ODIN.FUN."},
-      {q:"what is satoshi terminal", a:"Satoshi Terminal is a crypto-native interface on Bitcoin with a terminal UX. Tools, knowledge, and community with low friction."},
+      {q:"what is sats", a:"$SATS is the native token of Satoshi Terminal on BNB Chain. Meme energy + practical terminal utility. Launched via four.meme."},
+      {q:"what is satoshi terminal", a:"Satoshi Terminal is a crypto-native interface on BNB Chain with a terminal UX. Tools, knowledge, and community with low friction."},
       {q:"tokenomics", a:"Tokenomics: 0% buy and sell tax. Total supply and initial liquidity TBD at launch. Ownership to be renounced. Verify only via official links."},
-      {q:"why bitcoin", a:"Bitcoin carries unmatched signal and reach. ODIN.FUN gives a fast, bonding-curve style AMM experience to launch and trade $SATS."},
-      {q:"how to buy", a:"How to buy $SATS: open the official ODIN.FUN page, connect wallet, set slippage if needed, and buy along the curve. Confirm the official link on our socials."},
-      {q:"token link", a:"The official ODIN.FUN link will be posted on Twitter and Telegram right after launch. Avoid impostors."},
+      {q:"why bnb", a:"BNB Chain has scale, low fees and strong retail reach. four.meme provides a fast bonding-curve experience to launch and trade $SATS."},
+      {q:"how to buy", a:"Open the official four.meme page for $SATS, connect a BSC wallet (BNB for gas), set slippage if needed and buy along the curve. Confirm the official link on our socials."},
+      {q:"token link", a:"The official four.meme link will be posted on Twitter and Telegram right after launch. Avoid impostors."},
       {q:"liquidity", a:"Liquidity is added at launch and managed with transparency. Verify announcements on official channels."},
       {q:"audit", a:"An audit is planned around launch. Regardless, always DYOR and confirm the official page."},
       {q:"renounce", a:"Ownership renounce is planned post-setup. Exact timing will be announced publicly."},
@@ -441,12 +441,12 @@ Ready for input.</div>
       {q:"utility", a:"Utility: terminal UX, trading helpers, knowledge commands, later PnL tools, sentiment signals and quests."},
 
       // Trading & basics
-      {q:"slippage", a:"Start with modest slippage on ODIN.FUN. If it fails, adjust based on volatility and liquidity."},
-      {q:"price chart", a:"Use the ODIN.FUN token page or your preferred tracker. Terminal v2.0 will integrate live feeds."},
+      {q:"slippage", a:"Start with modest slippage on four.meme. If it fails, adjust based on volatility and liquidity."},
+      {q:"price chart", a:"Use the four.meme token page or your preferred tracker. Terminal v2.0 will integrate live feeds."},
 
       // Security / safety
       {q:"is this a rug", a:"Plan includes renounce and public transparency. Still, only invest what you can afford to lose and verify the official link."},
-      {q:"scam", a:"Beware of impersonators and fake pages. Cross-check on x.com/Sats_Terminal and t.me/satoshiterminal."},
+      {q:"scam", a:"Beware of impersonators and fake pages. Cross-check on x.com/Sats_Terminal and t.me/terminalsats."},
 
       // Community / socials
       {q:"twitter", a:"Twitter: https://x.com/Sats_Terminal"},
@@ -454,12 +454,12 @@ Ready for input.</div>
       {q:"community", a:"Join Telegram and Twitter to get verified links, contests, quests, and code drops."},
 
       // Terminal help
-      {q:"help", a:"Commands: /help, /about, /token, /howtobuy, /roadmap, /faq, /bitcoin, /hype, /meme, /tweet, /explain, /clean. Ask free-form too."},
+      {q:"help", a:"Commands: /help, /about, /token, /howtobuy, /roadmap, /faq, /bnb, /hype, /meme, /tweet, /explain, /clean. Ask free-form too."},
       {q:"about", a:"$SATS is for builders and degens who think in terminals. We ship fast and keep it practical."},
 
       // Marketing / memes / tweets
-      {q:"give meme ideas", a:"Meme ideas: terminal vs GUI, satoshi@bitcoin:$ ./moon.sh, orange-pill gags, ODIN speed meters."},
-      {q:"viral tweet", a:"Draft: $SATS on Bitcoin via ODIN.FUN just hits different. Terminal-first and orange-pilled. The terminal is open."},
+      {q:"give meme ideas", a:"Meme ideas: terminal vs GUI, satoshi@bsc:$ ./moon.sh, four.meme speed meters."},
+      {q:"viral tweet", a:"Draft: $SATS on BNB Chain via four.meme just hits different. Terminal-first and yellow-pilled. The terminal is open."},
 
       // Tutorials / dev flavored
       {q:"what is slippage tolerance", a:"Slippage is tolerated price movement during swaps. Too low may revert, too high worsens fills."},
@@ -473,10 +473,10 @@ Ready for input.</div>
       {q:"impermanent loss", a:"Occurs when providing LP to volatile pairs and prices diverge. Fees and incentives can offset it."},
 
       // Generic Q&A coverage
-      {q:"who is satoshi", a:"Pseudonymous creator of Bitcoin. Here, Satoshi is your terminal persona, bullish on $SATS on Bitcoin."},
-      {q:"compare bitcoin vs alt", a:"Bitcoin is the monetary base of crypto. $SATS builds on that signal with a terminal-first experience on ODIN.FUN."},
+      {q:"who is satoshi", a:"Pseudonymous creator of Bitcoin. Here, Satoshi is your terminal persona, now shipping on BNB Chain."},
+      {q:"compare bnb vs alt", a:"BNB Chain brings low fees and mass reach. $SATS builds on that signal with a terminal-first experience on four.meme."},
       {q:"how do i avoid rugs", a:"Verify devs, read the contract or page, check renounce and liquidity, avoid FOMO."},
-      {q:"when listing", a:"Trading on ODIN.FUN first. Any other listings depend on demand and due diligence."},
+      {q:"when listing", a:"Trading on four.meme first. Any other listings depend on demand and due diligence."},
       {q:"airdrop", a:"No airdrop promised. If anything changes, it will be announced on official channels."},
       {q:"staking", a:"Staking and farming hooks planned for v2.0."},
       {q:"partnerships", a:"Quality over quantity. If it helps users, it ships."},
@@ -484,10 +484,10 @@ Ready for input.</div>
       {q:"support", a:"Telegram for quick help. Never share seed phrases."}
     ];
 
-    // Aliases for better recall
+    // Aliases
     const ALIASES = [
       ["how buy sats","buy sats","purchase sats","get sats","where buy sats","how to buy sats"],
-      ["token link","official link","odin link","buy link"],
+      ["token link","official link","four link","buy link","four.meme link"],
       ["fees","slippage","fee"],
       ["scam check","rug check","honeypot","safe"],
       ["marketing ideas","growth ideas","viral ideas","go to market"],
@@ -497,7 +497,6 @@ Ready for input.</div>
       ["security","audit","renounce","lock liquidity"],
       ["road map","milestones","phases"]
     ];
-
     for(const aliasGroup of ALIASES){
       for(const alias of aliasGroup){
         const mapped =
@@ -509,7 +508,6 @@ Ready for input.</div>
         KB.push({ q: alias, a: mapped.a });
       }
     }
-
     const KB_INDEX = KB.map(item=>{
       const t = tokenize(item.q + " " + item.a);
       return { tf: termFreq(t), raw:item };
@@ -522,7 +520,7 @@ Ready for input.</div>
       return [
         "Processing in the terminal...",
         "Compiling a response from the vault...",
-        "Scanning Bitcoin playbooks...",
+        "Scanning BNB playbooks...",
         "Pulling guidance from Satoshi's notes..."
       ];
     }
@@ -531,13 +529,13 @@ Ready for input.</div>
       const q = query.toLowerCase();
       const bullets = [];
       if(q.includes("buy")||q.includes("purchase")||q.includes("get")){
-        bullets.push("Open the official ODIN.FUN token page and connect your wallet.");
+        bullets.push("Open the official four.meme token page and connect your BSC wallet.");
         bullets.push("Use reasonable slippage based on volatility.");
         bullets.push("Verify the official link on our socials.");
       }
       if(q.includes("marketing")||q.includes("tweet")||q.includes("grow")||q.includes("viral")){
-        bullets.push("Lean into terminal identity and Bitcoin lore.");
-        bullets.push("Show ODIN.FUN speed and simple UX.");
+        bullets.push("Lean into terminal identity and BNB Chain reach.");
+        bullets.push("Show four.meme speed and simple UX.");
         bullets.push("Contrast noise with terminal signal.");
       }
       if(q.includes("security")||q.includes("rug")||q.includes("safe")||q.includes("audit")){
@@ -547,8 +545,8 @@ Ready for input.</div>
       }
       if(q.includes("meme")){
         bullets.push("Terminal vs GUI split panel gag.");
-        bullets.push("satoshi@bitcoin:$ ./moon.sh with animated text.");
-        bullets.push("Orange-pill scoreboard jokes.");
+        bullets.push("satoshi@bsc:$ ./moon.sh with animated text.");
+        bullets.push("Yellow glow keyboard meme.");
       }
       if(q.includes("roadmap")||q.includes("plan")||q.includes("phase")){
         bullets.push("Phase 1: launch and core terminal.");
@@ -562,31 +560,29 @@ Ready for input.</div>
         "",
         bullets.length
           ? bullets.map(b=>`• ${b}`).join("\n")
-          : "Ask me anything about $SATS, Bitcoin, ODIN.FUN, memes, or growth. I can draft tweets, memes, explain concepts, or outline steps."
+          : "Ask me anything about $SATS, BNB Chain, four.meme, memes, or growth. I can draft tweets, memes, explain concepts, or outline steps."
       ].join("\n");
       return out;
     }
 
     // Draft helpers
-    function makeTweet(topic="SATS on Bitcoin"){
+    function makeTweet(topic="SATS on BNB"){
       return [
-        `Found ${topic} via ODIN.FUN and it just feels right.`,
-        `Terminal-first UX with orange-pill energy.`,
+        `Found ${topic} via four.meme and it just feels right.`,
+        `Terminal-first UX with yellow-pilled energy.`,
         `Ship faster. Think in code.`,
         `The terminal is open. $SATS`
       ].join("\n");
     }
-
     function makeMemeIdeas(topic="SATS"){
       return [
         `1) Terminal vs GUI: "I press keys, you press fees."`,
-        `2) ODIN speed meter vs slow swaps.`,
-        `3) satoshi@bitcoin:$ ./moon.sh --execute`,
+        `2) four.meme speed meter vs slow swaps.`,
+        `3) satoshi@bsc:$ ./moon.sh --execute`,
         `4) Brain expansion: trader -> terminal -> becoming ${topic}.`,
-        `5) Orange glow keyboard meme.`
+        `5) Yellow glow keyboard meme.`
       ].join("\n");
     }
-
     function explain(term){
       return `Quick explain - ${term}:\n• Definition: concise, practical view of "${term}".\n• Why it matters: helps you execute better.\n• Action: verify, test small, iterate fast.`;
     }
@@ -603,26 +599,26 @@ Ready for input.</div>
 /howtobuy   Steps to buy $SATS
 /roadmap    Project phases
 /faq        Common questions
-/bitcoin    Why Bitcoin
+/bnb        Why BNB Chain
 /hype       Tweet drafts bundle
 /meme [t]   Meme ideas for topic t
 /tweet [t]  Tweet draft for topic t
 /explain t  Short explanation for term t
 /clean      Clear the screen
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      "/about": `$SATS - terminal-first token on Bitcoin for people who think in code. We ship fast and keep it practical.`,
+      "/about": `$SATS - terminal-first token on BNB Chain for people who think in code. We ship fast and keep it practical.`,
       "/token": `Token
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Name: Satoshi Terminal
 Ticker: $SATS
-Chain: Bitcoin
+Chain: BNB Chain
 Official link: posted on socials after launch
 Tax: 0% / 0%
 Ownership: Will be renounced
-Launch: ODIN.FUN`,
+Launch: four.meme`,
       "/howtobuy": `How to Buy
-1) Open the official ODIN.FUN token page
-2) Connect your wallet
+1) Open the official four.meme token page
+2) Connect your BSC wallet (BNB for gas)
 3) Use reasonable slippage if needed
 4) Buy along the curve and bookmark the page`,
       "/roadmap": `Roadmap
@@ -636,10 +632,10 @@ Q: Price feed?
 A: v2.0 will integrate live data
 Q: Support?
 A: Telegram: t.me/terminalsats`,
-      "/bitcoin": `Why Bitcoin: unmatched signal and reach. ODIN.FUN gives speed and simplicity for launch and trading.`,
+      "/bnb": `Why BNB Chain: low fees, reach and speed. four.meme gives simplicity for launch and trading.`,
       "/hype": `Hype Drafts
-1) "$SATS on Bitcoin via ODIN.FUN. Terminal-first. Orange-pilled."
-2) "If you still wait on slow swaps, that’s a skill issue. ODIN.FUN is live. $SATS"`,
+1) "$SATS on BNB Chain via four.meme. Terminal-first. Yellow-pilled."
+2) "If you still wait on slow swaps, that’s a skill issue. four.meme is live. $SATS"`,
       "/clean": "CLEAR_SCREEN"
     };
 
@@ -700,7 +696,7 @@ A: Telegram: t.me/terminalsats`,
           const [cmd, ...rest] = lower.split(/\s+/);
           const arg = rest.join(' ').trim();
           if(cmd === '/tweet'){
-            const t = arg || 'SATS on Bitcoin';
+            const t = arg || 'SATS on BNB';
             return makeTweet(t);
           }
           if(cmd === '/meme'){
@@ -746,7 +742,7 @@ A: Telegram: t.me/terminalsats`,
         const inner = document.createElement('div');
         inner.className = `message-${type}`;
         if(type==='input'){
-          inner.innerHTML = `<span class="terminal-prompt">satoshi@bitcoin:$</span> ${content}`;
+          inner.innerHTML = `<span class="terminal-prompt">satoshi@bsc:$</span> ${content}`;
         } else {
           inner.textContent = content;
           const copyBtn = document.createElement('button');
@@ -783,7 +779,7 @@ A: Telegram: t.me/terminalsats`,
       }
 
       copy(text){
-        navigator.clipboard.writeText(text).then(()=>window.logEvent('text_copied',{length:text.length})).catch(()=>{
+        navigator.clipboard.writeText(text).catch(()=>{
           const ta = document.createElement('textarea');
           ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
         });
@@ -822,22 +818,22 @@ A: Telegram: t.me/terminalsats`,
       typeText(el, txt, speed=120){ return new Promise(res=>{ let i=0; const it=setInterval(()=>{ el.textContent += txt[i]; i++; if(i>=txt.length){ clearInterval(it); res(); } }, speed); }); }
     };
 
-    // For ODIN.FUN, we typically show the official token page link, not an EVM scanner
-    function setTokenLink(odinUrl){
+    // Para four.meme, mostramos o link oficial da página do token (não scanner)
+    function setTokenLink(fourUrl){
       const el = document.getElementById('contractInfo');
       if(el){
         try{
-          const short = odinUrl.length > 48 ? odinUrl.slice(0,28) + "..." + odinUrl.slice(-12) : odinUrl;
-          el.innerHTML = `Token: <a href="${odinUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">${short}</a>`;
+          const short = fourUrl.length > 48 ? fourUrl.slice(0,28) + "..." + fourUrl.slice(-12) : fourUrl;
+          el.innerHTML = `Token: <a href="${fourUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">${short}</a>`;
         }catch{
-          el.textContent = `Token: ${odinUrl}`;
+          el.textContent = `Token: ${fourUrl}`;
         }
       }
       const buyBtn = document.getElementById('buyBtn');
       const footerBuy = document.getElementById('footerBuy');
-      if(buyBtn) buyBtn.href = odinUrl;
-      if(footerBuy) footerBuy.href = odinUrl;
-      window.logEvent('token_link_updated',{odinUrl});
+      if(buyBtn) buyBtn.href = fourUrl;
+      if(footerBuy) footerBuy.href = fourUrl;
+      window.logEvent('token_link_updated',{fourUrl});
     }
 
     window.logEvent = function(name,data={}){ try{ console.log('Analytics Event:',name,data); }catch{} };
@@ -866,21 +862,22 @@ A: Telegram: t.me/terminalsats`,
         });
       });
 
-      document.querySelectorAll('a[href^="https://x.com"], a[href^="https://t.me"], a[href^="https://odin.fun"]').forEach(link=>{
+      document.querySelectorAll('a[href^="https://x.com"], a[href^="https://t.me"], a[href^="https://four.meme"]').forEach(link=>{
         link.addEventListener('click', ()=>{
           const url = link.href;
           let platform = 'unknown';
           if(url.includes('x.com')) platform='twitter';
           else if(url.includes('t.me')) platform='telegram';
-          else if(url.includes('odin.fun')) platform='odin';
+          else if(url.includes('four.meme')) platform='fourmeme';
           window.logEvent('social_click',{platform,url});
         });
       });
 
-      // expose small API
-      window.SatoshiTerminal = { setTokenLink, logEvent:window.logEvent, version:'1.1.0-btc' };
+      // Exemplo: chame isto depois do deploy real
+      // window.SatoshiTerminal.setTokenLink('https://four.meme/token/0xYourTokenAddress');
+      window.SatoshiTerminal = { setTokenLink, logEvent:window.logEvent, version:'1.1.0-bsc' };
 
-      console.log('🚀 Satoshi Terminal v1.1 on Bitcoin ready');
+      console.log('🚀 Satoshi Terminal v1.1 on BNB Chain ready');
       console.log('Try: /help, /tweet hype, /meme sats, explain slippage, how to buy, security, tokenomics, roadmap');
     });
   </script>
